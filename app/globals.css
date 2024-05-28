@@ -24,6 +24,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  margin: 0 auto; /* Centraliza o container na página */
+  padding: 0 20px; /* Adicione padding opcional aos lados do container */
+  overflow-x: hidden; /* Evita que a página tenha scroll horizontal */
 }
 
 @layer utilities {
