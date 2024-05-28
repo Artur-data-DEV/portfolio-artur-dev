@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GitHub, Linkedin, Instagram } from "react-feather";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 interface HeroProps {}
 
@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = () => {
             rel="noopener noreferrer"
             className="text-gray-600 transition duration-300 hover:text-gray-800"
           >
-            <Instagram size={24} />
+            <FaInstagram size={24} />
           </Link>
           <Link
             href="https://github.com/olawanlejoel"
@@ -90,7 +90,7 @@ const Hero: React.FC<HeroProps> = () => {
             rel="noopener noreferrer"
             className="text-gray-600 transition duration-300 hover:text-gray-800"
           >
-            <GitHub size={24} />
+            <FaGithub size={24} />
           </Link>
           <Link
             href="https://www.linkedin.com/in/olawanlejoel/"
@@ -99,7 +99,7 @@ const Hero: React.FC<HeroProps> = () => {
             rel="noopener noreferrer"
             className="text-gray-600 transition duration-300 hover:text-gray-800"
           >
-            <Linkedin size={24} />
+            <FaLinkedin size={24} />
           </Link>
         </div>
       </div>
