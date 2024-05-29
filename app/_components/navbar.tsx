@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
-    <header className="flex w-full items-center justify-between px-32 py-8 font-medium">
+    <header className="flex w-full items-center justify-between bg-gray-900 px-32 py-8 font-medium text-white">
       <nav className="flex items-center justify-between">
         <CustomLink href="/" title={"Home"} className="mr-4" />
         <CustomLink href="/about" title={"Sobre"} className="mx-4" />

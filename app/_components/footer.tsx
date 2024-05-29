@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <>
+    <footer className="bg-gray-900 pb-6 text-gray-500">
       <hr className="my-8 border-gray-500" />
       <div className="flex flex-col items-center">
         <p className="text-sm text-gray-500">
@@ -12,7 +12,7 @@ const Footer = () => {
         </p>
         <div className="mt-4 flex space-x-4">
           <Link
-            href="https://twitter.com/artur-batista"
+            href="https://www.instagram.com/artur-batista"
             passHref
             target="_blank"
           >
@@ -43,7 +43,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 
