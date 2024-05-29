@@ -1,19 +1,39 @@
 import Link from "next/link";
+import CustomLink from "./custom-link";
+import Logo from "./logo";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between bg-gray-900 px-8 py-4 text-white">
-      <div className="text-xl font-bold">
-        <Link href="/">
-          <span>Portfólio</span>
+    <header className="flex w-full items-center justify-between px-32 py-8 font-medium">
+      <nav className="flex items-center justify-between">
+        <CustomLink href="/" title={"Home"} className="mr-4" />
+        <CustomLink href="/about" title={"Sobre"} className="mx-4" />
+        <CustomLink href="/skills" title={"Skills"} className="mx-4" />
+        <CustomLink href="/projects" title={"Projetos"} className="mx-4" />
+        <CustomLink href="/contact" title={"Contato"} className="ml-4" />
+      </nav>
+      <nav>
+        <Link href="/" target="_blank">
+          T
         </Link>
+        <Link href="/" target="_blank">
+          T
+        </Link>
+        <Link href="/" target="_blank">
+          T
+        </Link>
+        <Link href="/" target="_blank">
+          T
+        </Link>
+        <Link href="/" target="_blank">
+          T
+        </Link>
+      </nav>
+
+      <div className="absolute left-1/2 top-2 translate-x-[-50%]">
+        <Logo />
       </div>
-      <Link href="/resume">
-        <span className="rounded-lg bg-yellow-500 px-4 py-2 text-sm font-semibold text-gray-900 transition duration-300 hover:bg-yellow-400">
-          Resume
-        </span>
-      </Link>
-    </div>
+    </header>
   );
 };
 
