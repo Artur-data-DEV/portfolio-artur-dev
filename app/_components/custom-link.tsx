@@ -10,7 +10,6 @@ interface CustomLinkProps {
 
 const CustomLink = ({ href, title, className }: CustomLinkProps) => {
   const pathname = usePathname();
-  console.log("pathname", pathname);
   return (
     <Link href={href} className={`${className} group relative`}>
       {title}
