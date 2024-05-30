@@ -15,8 +15,10 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Home() {
   const windowSize = useWindowSize();
-  const isLargeScreen = windowSize?.width ? windowSize.width > 768 : false;
   const isMobileScreen = windowSize?.width ? windowSize.width <= 768 : false;
+  const isExtraLargeScreen = windowSize?.width
+    ? windowSize.width > 1024
+    : false;
   return (
     <>
       <Head>
@@ -29,7 +31,7 @@ export default function Home() {
           <div className="flex w-full flex-col items-center justify-between lg:flex-row">
             <AnimatedMotionComponent
               className={
-                isMobileScreen ? "h-1/2 w-1/2" : "h-full w-full lg:mr-4"
+                isMobileScreen ? "h-1/2 w-1/2" : "h-auto w-[40vw] lg:mr-4"
               }
               tag="div"
             >
@@ -44,8 +46,8 @@ export default function Home() {
             </AnimatedMotionComponent>
             <div className="flex w-full flex-col items-center lg:ml-4 lg:w-1/2 lg:items-start">
               <AnimatedText
-                text="Olá, eu sou o Artur! 👋        Transformando ideias em realidade com código e design"
-                className="text-left text-xl sm:text-2xl lg:text-3xl xl:text-4xl"
+                text="Olá, eu sou o Artur! 👋 Transformando ideias em realidade com código e design"
+                className="text-left text-xl sm:text-2xl lg:text-3xl xl:text-5xl"
               />
               <AnimatedMotionComponent
                 transition={{ duration: 1 }}
@@ -99,26 +101,23 @@ export default function Home() {
                 </Button>
               </AnimatedMotionComponent>
             </div>
+            {isExtraLargeScreen && (
+              <AnimatedMotionComponent
+                transition={{ duration: 1, delay: 0.5 }}
+                tag="div"
+                className={"absolute bottom-0 right-0 h-1/4 w-1/4 rounded-full"}
+              >
+                <Image
+                  src={Programmer}
+                  alt="developer"
+                  className="h-auto w-full rounded-full"
+                  width={0}
+                  height={0}
+                />
+              </AnimatedMotionComponent>
+            )}
           </div>
         </CustomLayout>
-        {isLargeScreen && (
-          <AnimatedMotionComponent
-            tag="div"
-            initial={{ visibility: "hidden" }}
-            animate={{ opacity: 1, y: 0, visibility: "visible" }}
-          >
-            <div className="absolute bottom-8 right-8 w-12 pt-36 sm:w-16 lg:w-20">
-              <Image
-                src={Programmer}
-                alt="developer"
-                className={"h-auto w-full rounded-full"}
-                width={0}
-                height={0}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-          </AnimatedMotionComponent>
-        )}
       </main>
       <HireMe />
       <Footer />
