@@ -2,9 +2,6 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
 | Version | Supported          |
 | ------- | ------------------ |
 | 5.1.x   | :white_check_mark: |
@@ -16,6 +13,5 @@ currently being supported with security updates.
 
 Use this section to tell people how to report a vulnerability.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+
+To report a vulnerability, please send an email to arturcamposba99@gmail.com with a subject [BUG] and the description of the issue, the affected versions, and any related information. Me and my team will review the report and respond with an initial assessment within 3 business days. If the issue is accepted, we will provide regular updates on the progress towards resolution. If the issue is declined, we will provide an explanation.
