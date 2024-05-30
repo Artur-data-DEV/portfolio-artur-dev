@@ -34,6 +34,8 @@ const singleWord = {
 };
 
 const AnimatedText = ({ text, className }: AnimatedTextProps) => {
+  const parts = text.split("|br|");
+
   return (
     <div
       className={
@@ -46,14 +48,19 @@ const AnimatedText = ({ text, className }: AnimatedTextProps) => {
         initial="initial"
         animate="animate"
       >
-        {text.split(" ").map((char, index) => (
-          <motion.span
-            key={char + "-" + index}
-            className={"inline-block"}
-            variants={singleWord}
-          >
-            {char}&nbsp;
-          </motion.span>
+        {parts.map((part, partIndex) => (
+          <span key={partIndex}>
+            {part.split(" ").map((char, wordIndex) => (
+              <motion.span
+                key={char + "-" + wordIndex}
+                className={"inline-block"}
+                variants={singleWord}
+              >
+                {char}&nbsp;
+              </motion.span>
+            ))}
+            {partIndex < parts.length - 1 && <br />}
+          </span>
         ))}
       </motion.h1>
     </div>
