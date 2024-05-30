@@ -5,7 +5,7 @@ import AnimatedText from "./_components/animated/animated-text";
 import Link from "next/link";
 import { Button } from "./_components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import HireMe from "./_components/hire-me";
+import HireMe from "./_components/animated/hire-me";
 import Programmer from "../public/programmer.png";
 import AnimatedMotionComponent from "./_components/animated/animated-tag";
 import { useWindowSize } from "@uidotdev/usehooks";
