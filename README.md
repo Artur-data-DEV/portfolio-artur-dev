@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Meu Portfólio 💻🚀
 
-## Getting Started
+## Sobre 🤔
 
-First, run the development server:
+Este é um projeto de portfólio mostrando minhas habilidades e experiência como desenvolvedor. Inclui uma coleção de projetos em que trabalhei, junto com descrições, tecnologias utilizadas, links para demonstrações ao vivo e repositórios. 🔥✨
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Contato 📫
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Se você tiver alguma dúvida ou gostaria de discutir oportunidades potenciais, sinta-se à vontade para entrar em contato comigo em [arturcamposba99@gmail.com](mailto:arturcamposba99@gmail.com). 📧💬
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Licença 📄
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Este projeto está licenciado sob a [Licença GNU](LICENSE). 🔒
 
-## Learn More
+Eu uso gitmoji para manter um histórico de commits mais expressivo e divertido! 😄
 
-To learn more about Next.js, take a look at the following resources:
+<a href="https://gitmoji.dev">
+  <img     src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"     alt="Gitmoji"/>
+</a>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[https://gitmoji.dev](https://gitmoji.dev)🎉
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
