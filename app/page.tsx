@@ -1,3 +1,4 @@
+"use client";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
 import Head from "next/head";
@@ -9,8 +10,13 @@ import { Button } from "./_components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import HireMe from "./_components/hire-me";
 import Programmer from "../public/programmer.png";
+import AnimatedMotionComponent from "./_components/animated-tag";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Home() {
+  const windowSize = useWindowSize();
+  const isLargeScreen = windowSize?.width ? windowSize.width > 768 : false;
+  const isMobileScreen = windowSize?.width ? windowSize.width <= 768 : false;
   return (
     <>
       <Head>
@@ -21,7 +27,12 @@ export default function Home() {
       <main className="text-dark flex min-h-screen w-full flex-col items-center justify-center px-4 sm:max-w-[1000px] sm:px-8 lg:max-w-[1200px] lg:flex-row xl:max-w-[1500px] 2xl:max-w-[1800px]">
         <CustomLayout>
           <div className="flex w-full flex-col items-center justify-between lg:flex-row">
-            <div className="h-full w-full sm:w-1/2 sm:max-w-[50%] lg:mr-4">
+            <AnimatedMotionComponent
+              className={
+                isMobileScreen ? "h-1/2 w-1/2" : "h-full w-full lg:mr-4"
+              }
+              tag="div"
+            >
               <Image
                 src="/developer2-bgrm.png"
                 alt="Artur Campos"
@@ -30,20 +41,28 @@ export default function Home() {
                 height={0}
                 sizes="100vw"
               />
-            </div>
+            </AnimatedMotionComponent>
             <div className="flex w-full flex-col items-center lg:ml-4 lg:w-1/2 lg:items-start">
               <AnimatedText
                 text="Olá, eu sou o Artur! 👋        Transformando ideias em realidade com código e design"
                 className="text-left text-xl sm:text-2xl lg:text-3xl xl:text-4xl"
               />
-              <p className="my-4 text-xs sm:text-sm lg:text-base">
+              <AnimatedMotionComponent
+                transition={{ duration: 1 }}
+                className="my-4 text-xs sm:text-sm lg:text-base"
+                tag="p"
+              >
                 Desenvolvedor de software com mais de 5 anos de experiência em
                 desenvolvimento web, um dev fullstack apaixonado por inovação e
                 novos desafios de tecnologia!. Com habilidades em HTML, CSS,
                 JavaScript, React, Node.js, MongoDB, TypeScript e{" "}
                 <strong>muito mais!</strong>
-              </p>
-              <div className="mt-2 flex flex-wrap items-center gap-4 self-center lg:self-start">
+              </AnimatedMotionComponent>
+              <AnimatedMotionComponent
+                transition={{ duration: 1, delay: 0.5 }}
+                className="mt-2 flex flex-wrap items-center gap-4 self-center lg:self-start"
+                tag="div"
+              >
                 <Button asChild>
                   <Link
                     href={"/curriculum.pdf"}
@@ -64,31 +83,44 @@ export default function Home() {
                     Currículo Online
                   </Link>
                 </Button>
-              </div>
-              <Button asChild variant={"ghost"} className="mt-2">
-                <Link
-                  href={"mailto:arturcamposba99@gmail.com"}
-                  target="_blank"
-                  className="text-xs font-medium underline sm:text-sm lg:text-base"
-                >
-                  Entre em contato comigo
-                </Link>
-              </Button>
+              </AnimatedMotionComponent>
+              <AnimatedMotionComponent
+                className="mt-2 flex flex-wrap items-center gap-4 self-center lg:self-start"
+                tag="div"
+              >
+                <Button asChild variant={"ghost"} className="mt-2">
+                  <Link
+                    href={"mailto:arturcamposba99@gmail.com"}
+                    target="_blank"
+                    className="text-xs font-medium underline sm:text-sm lg:text-base"
+                  >
+                    Entre em contato comigo
+                  </Link>
+                </Button>
+              </AnimatedMotionComponent>
             </div>
           </div>
         </CustomLayout>
+        {isLargeScreen && (
+          <AnimatedMotionComponent
+            tag="div"
+            initial={{ visibility: "hidden" }}
+            animate={{ opacity: 1, y: 0, visibility: "visible" }}
+          >
+            <div className="absolute bottom-8 right-8 w-12 pt-36 sm:w-16 lg:w-20">
+              <Image
+                src={Programmer}
+                alt="developer"
+                className={"h-auto w-full rounded-full"}
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+          </AnimatedMotionComponent>
+        )}
       </main>
       <HireMe />
-      <div className="absolute bottom-8 right-8 w-12 pt-36 sm:w-16 lg:w-20">
-        <Image
-          src={Programmer}
-          alt="developer"
-          className="h-auto w-full rounded-full"
-          width={0}
-          height={0}
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
       <Footer />
     </>
   );
