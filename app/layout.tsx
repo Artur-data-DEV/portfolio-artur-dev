@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar";
 import Footer from "./_components/footer";
+import ThemeProvider from "@/providers/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,9 +38,16 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} font-sans`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          enableColorScheme
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -23,6 +23,8 @@ const Logo = () => {
           ],
           transition: { duration: 1, repeat: Infinity },
         }}
+        whileTap={{ scale: 0.9 }}
+        whileInView={{ backgroundColor: "white" }}
       >
         <MdOutlineConnectWithoutContact />
       </MotionLink>

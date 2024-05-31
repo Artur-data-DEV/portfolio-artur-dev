@@ -11,7 +11,7 @@ interface CustomLinkProps {
 const CustomLink = ({ href, title, className }: CustomLinkProps) => {
   const pathname = usePathname();
   return (
-    <Link href={href} className={`${className} group relative`}>
+    <Link href={href} className={`${className} group relative max-w-min`}>
       {title}
       <span
         className={`ease absolute bottom-0.5 left-1/2  h-[1px] bg-white transition-[width] duration-300 group-hover:w-1/2 ${pathname === href ? "w-1/2" : "w-0"}`}
