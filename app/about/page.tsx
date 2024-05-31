@@ -20,7 +20,7 @@ const About = () => {
           />
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-8">
             <div className="col-span-1 flex flex-col items-center justify-start gap-4 pl-10 pt-8 sm:col-span-2 sm:pt-12 lg:col-span-3 lg:pt-16 xl:pt-20">
-              <h2 className="mb-4 text-sm font-bold uppercase text-black/75 sm:text-base">
+              <h2 className="text-current/75 mb-4 text-sm font-bold uppercase sm:text-base">
                 Biografia
               </h2>
               <p className="text-justify text-lg font-medium sm:text-left sm:text-base">

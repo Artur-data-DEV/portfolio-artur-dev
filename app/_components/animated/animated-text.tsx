@@ -43,7 +43,7 @@ const AnimatedText = ({ text, className }: AnimatedTextProps) => {
       }
     >
       <motion.h1
-        className={`inline-block w-full text-8xl font-bold capitalize text-black ${className} duration-300 ease-in-out`}
+        className={`inline-block w-full text-8xl font-bold capitalize text-current ${className} duration-300 ease-in-out`}
         variants={quote}
         initial="initial"
         animate="animate"

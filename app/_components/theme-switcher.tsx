@@ -1,13 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { FaMoon } from "react-icons/fa";
 
-const ThemeSwitcher = () => {
+const themes = [
+  { name: "Light Theme", value: "light" },
+  { name: "Dark Theme", value: "dark" },
+  { name: "Red Theme", value: "red" },
+  { name: "Green Theme", value: "green" },
+  { name: "Blue Theme", value: "blue" },
+  { name: "Gold Theme", value: "gold" },
+];
+
+const ThemeSwitcher = ({ className }: { className?: string }) => {
   const { setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -15,11 +25,27 @@ const ThemeSwitcher = () => {
 
   const changeTheme = (selectedTheme: string) => {
     setTheme(selectedTheme);
-    toggleDropdown();
+    setIsOpen(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative inline-block text-left">
+    <div className={`relative inline-block text-left ${className}`}>
       <Button
         variant="ghost"
         size="icon"
@@ -31,6 +57,7 @@ const ThemeSwitcher = () => {
       </Button>
       {isOpen && (
         <motion.div
+          ref={dropdownRef}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
@@ -40,24 +67,18 @@ const ThemeSwitcher = () => {
           aria-labelledby="options-menu"
         >
           <div className="py-1" role="none">
-            <motion.button
-              onClick={() => changeTheme("light")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="block w-full px-4 py-2 text-left text-sm text-gray-700"
-              role="menuitem"
-            >
-              Light Theme
-            </motion.button>
-            <motion.button
-              onClick={() => changeTheme("dark")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="block w-full px-4 py-2 text-left text-sm text-gray-700"
-              role="menuitem"
-            >
-              Dark Theme
-            </motion.button>
+            {themes.map((theme) => (
+              <motion.button
+                key={theme.value}
+                onClick={() => changeTheme(theme.value)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="block w-full px-4 py-2 text-left text-sm text-gray-700"
+                role="menuitem"
+              >
+                {theme.name}
+              </motion.button>
+            ))}
           </div>
         </motion.div>
       )}
