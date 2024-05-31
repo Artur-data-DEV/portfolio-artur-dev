@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { FaMoon } from "react-icons/fa";
+import { VscColorMode } from "react-icons/vsc";
 
 const themes = [
   { name: "Light Theme", value: "light" },
@@ -20,7 +20,7 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(false);
   };
 
   const changeTheme = (selectedTheme: string) => {
@@ -37,6 +37,7 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
     }
   };
 
+  console.log(isOpen);
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -52,8 +53,15 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
         onClick={toggleDropdown}
         aria-haspopup="true"
         aria-expanded={isOpen ? "true" : "false"}
+        className="rounded-full"
       >
-        <FaMoon size={24} />
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="self-left"
+        >
+          <VscColorMode size={18} />
+        </motion.div>
       </Button>
       {isOpen && (
         <motion.div

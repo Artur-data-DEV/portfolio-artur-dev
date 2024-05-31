@@ -154,6 +154,7 @@ const Navbar = () => {
               exit="hidden"
               variants={navList}
             >
+              <h2 className="self-center text-xl">Menu</h2>
               {navLinks.map((link, index) => (
                 <motion.li key={index} variants={navItem}>
                   <CustomLink
