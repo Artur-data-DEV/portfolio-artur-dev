@@ -67,7 +67,7 @@ const Navbar = () => {
           <FaGithub size={24} />
         </motion.a>
         <motion.a
-          href="/"
+          href="https://www.linkedin.com/in/artur-campos-09243b303/"
           target="_blank"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}
@@ -75,7 +75,7 @@ const Navbar = () => {
           <FaLinkedin size={24} />
         </motion.a>
         <motion.a
-          href="/"
+          href="https://wa.me//556192835145?text=Vamos%20falar%20de%20codigo%20👨🏽‍💻"
           target="_blank"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.9 }}

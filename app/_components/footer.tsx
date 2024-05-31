@@ -1,23 +1,24 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 pb-6 text-gray-500">
-      <hr className="my-8 border-gray-500" />
+    <footer className="bg-gray-900 pb-2 text-gray-500">
+      <hr className="my-5 border-gray-500" />
       <div className="flex flex-col items-center">
         <p className="text-sm text-gray-500">
           © {new Date().getFullYear()} Artur Campos Portfolio. Todos os
           direitos reservados.
         </p>
-        <div className="mt-4 flex space-x-4">
+        <div className="mt-2 flex space-x-4">
           <Link
             href="https://www.instagram.com/artur-batista"
             passHref
             target="_blank"
           >
             <FaInstagram
-              size={24}
+              size={18}
               className="cursor-pointer text-gray-500 transition duration-300 hover:text-gray-400"
             />
           </Link>
@@ -27,7 +28,7 @@ const Footer = () => {
             target="_blank"
           >
             <FaGithub
-              size={24}
+              size={18}
               className="cursor-pointer text-gray-500 transition duration-300 hover:text-gray-400"
             />
           </Link>
@@ -37,10 +38,24 @@ const Footer = () => {
             target="_blank"
           >
             <FaLinkedin
-              size={24}
+              size={18}
               className="cursor-pointer text-gray-500 transition duration-300 hover:text-gray-400"
             />
           </Link>
+        </div>
+        <div>
+          <div className="mt-3 flex flex-col justify-center">
+            <span className={"text-sm"}>Produzido com NextJS</span>
+            <Link
+              href={"https://nextjs.org/"}
+              className="self-center text-gray-500"
+            >
+              <SiNextdotjs
+                size={14}
+                className="cursor-pointer text-gray-500 transition duration-300 hover:text-slate-400"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
