@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./_components/navbar";
 import Footer from "./_components/footer";
 import ThemeProvider from "@/providers/theme-provider";
+import CustomLayout from "./_components/customLayout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -45,7 +46,7 @@ export default function RootLayout({
           enableColorScheme
         >
           <Navbar />
-          {children}
+          <CustomLayout>{children}</CustomLayout>
           <Footer />
         </ThemeProvider>
       </body>
