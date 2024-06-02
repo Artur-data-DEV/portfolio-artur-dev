@@ -2,5 +2,11 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "no-unused-vars": "error"
-  }
+  },
+  "overrides": [ {
+    "files": ["tests/**/*"],
+    "env": {
+      "jest": true
+    }
+  }]
 }
