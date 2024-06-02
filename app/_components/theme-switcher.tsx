@@ -37,7 +37,6 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
     }
   };
 
-  console.log(isOpen);
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
