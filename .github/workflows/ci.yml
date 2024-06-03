@@ -33,9 +33,9 @@ jobs:
       - name: Deploy to staging
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          # Add your deployment commands here
+          vercel
 
       - name: Deploy to production
         if: github.event_name == 'push' && github.ref == 'refs/tags/*'
         run: |
-          # Add your deployment commands here
+          vercel --prod
