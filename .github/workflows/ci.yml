@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: 🚀 CI/CD Pipeline
 
 on:
   push:
@@ -15,11 +15,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 'lts/*'  # Node.js LTS version
+          node-version: "lts/*"
 
       - name: Install dependencies
         run: npm ci
@@ -30,12 +36,47 @@ jobs:
       - name: Build and test
         run: npm run build && npm run test
 
-      - name: Deploy to staging
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Static Code Analysis (SAST)
+        uses: sonarsource/sonarcloud-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Dependency Vulnerability Check
+        run: npx snyk test
+
+      # - name: Security Checks
+      #   run: # Adicione seus testes de segurança automatizados aqui
+
+      # - name: Performance Testing
+      #   run: # Adicione seus testes de desempenho automatizados aqui
+
+      - name: Deploy to Staging
+        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         run: |
           vercel
-
+          
       - name: Deploy to production
         if: github.event_name == 'push' && github.ref == 'refs/tags/*'
         run: |
           vercel --prod
+
+      # - name: Integration with Monitoring Tools
+      #   run: # Adicione sua integração com ferramentas de monitoramento aqui
+
+      # - name: Automatic Documentation Update
+      #   run: # Adicione seu script de atualização automática da documentação aqui
+
+      # - name: Backup Strategy
+      #   run: # Adicione sua estratégia de backup automatizada aqui
+
+      - name: Automatic Change Log
+        run: |
+          npm install -g conventional-changelog-cli
+          conventional-changelog -p angular -i CHANGELOG.md -s
+
+      - name: Notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -X POST "$DISCORD_WEBHOOK_URL" -H "Content-Type: application/json" -d "{\"content\": \"🚀 Deployed to production!\"}"
