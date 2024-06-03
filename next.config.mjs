@@ -26,7 +26,62 @@ const nextConfig = {
         return config;
     },
 
-    // ...other config
+    i18n:{
+        locales:  [
+            "en-US", // Inglês (Estados Unidos)
+            "es-ES", // Espanhol (Espanha)
+            "fr", // Francês
+            "de", // Alemão
+            "it", // Italiano
+            "pt-BR", // Português (Brasil)
+            "pt-PT", // Português (Portugal)
+            "nl-NL", // Holandês (Países Baixos)
+            "ru", // Russo
+            "ja", // Japonês
+            "zh-CN", // Chinês (Simplificado)
+            "zh-TW", // Chinês (Tradicional)
+            "ko", // Coreano
+            "ar", // Árabe
+            "hi", // Hindi
+            "id", // Indonésio
+            "tr", // Turco
+            "th", // Tailandês
+            "vi", // Vietnamita
+            "sv", // Sueco
+            "fi", // Finlandês
+            "no", // Norueguês
+            "da", // Dinamarquês
+            "pl", // Polonês
+            "cs", // Tcheco
+            "hu", // Húngaro
+            "ro", // Romeno
+            "el", // Grego
+            "bg", // Búlgaro
+            "sk", // Eslovaco
+            "sl", // Esloveno
+            "uk", // Ucraniano
+            "hr", // Croata
+            "et", // Estoniano
+            "lv", // Letão
+            "lt", // Lituano
+            "ms", // Malaio
+            "fil", // Filipino
+            "sw", // Swahili
+            "af", // Africâner
+            "sq", // Albanês
+            "am", // Amárico
+            "hy", // Armênio
+            "az", // Azerbaijano
+            "eu", // Basco
+            "be", // Bielorrusso
+            "bn", // Bengali
+            "bs", // Bósnio
+            "ceb", // Cebuano
+            "co" // Córsico
+          ],
+          defaultLocale: 'pt-BR',
+          localeDetection: false
+    }
 };
 
 export default nextConfig;
