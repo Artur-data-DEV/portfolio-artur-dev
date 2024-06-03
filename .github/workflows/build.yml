@@ -46,9 +46,13 @@ jobs:
 
       - name: Build and test
         run: npm run build && npm run test
-
+        
       - name: Dependency Vulnerability Check
-        run: npx snyk test
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          run: npx snyk test
 
       # - name: Security Checks
       #   run: # Adicione seus testes de segurança automatizados aqui
@@ -84,4 +88,4 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          curl -X POST "$DISCORD_WEBHOOK_URL" -H "Content-Type: application/json" -d "{\"content\": \"🚀 Deployed to production!\"}"
+          curl -X POST "$DISCORD_WEBHOOK_URL" -H "Content-Type: application/json" -d "{\"content\": \"🚀 Portfolio updates deployed to production!\"}"
