@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta
@@ -41,9 +41,17 @@ export default function RootLayout({
       <body className={`${montserrat.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           enableColorScheme
+          themes={[
+            "light",
+            "dark-classic",
+            "tangerine",
+            "dark-tangerine",
+            "mint",
+            "dark-mint",
+          ]}
         >
           <Navbar />
           <CustomLayout>{children}</CustomLayout>

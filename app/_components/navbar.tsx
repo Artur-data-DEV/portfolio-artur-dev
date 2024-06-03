@@ -101,74 +101,77 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="flex w-full items-center justify-between bg-current px-4 py-4 font-medium text-current">
-      <div className="flex w-full items-center justify-between">
-        <nav className="hidden space-x-4 sm:flex">
-          {navLinks.map((link) => (
-            <CustomLink key={link.href} href={link.href} title={link.title} />
-          ))}
-        </nav>
-        <div className="absolute left-1/2 top-2 -translate-x-1/2 transform sm:static sm:translate-x-0">
-          <Logo />
+    <header>
+      <div className="flex w-full items-center justify-between bg-primary px-4 py-4 font-medium ">
+        <div className="flex w-full items-center justify-between">
+          <nav className="hidden space-x-4 sm:flex">
+            {navLinks.map((link) => (
+              <CustomLink key={link.href} href={link.href} title={link.title} />
+            ))}
+          </nav>
+          <div className="absolute left-1/2 top-2 -translate-x-1/2 transform sm:static sm:translate-x-0">
+            <Logo />
+          </div>
+          <div className="flex space-x-3">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={index}
+                href={link.href}
+                target="_blank"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-primary-foreground"
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </div>
         </div>
-        <div className="flex space-x-3">
-          {socialLinks.map((link, index) => (
-            <motion.a
-              key={index}
-              href={link.href}
-              target="_blank"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-white"
-            >
-              {link.icon}
-            </motion.a>
-          ))}
-        </div>
-      </div>
-      <div className="ml-10 flex items-center">
-        <ThemeSwitcher className="hidden sm:block" />
-        <motion.button
-          className="text-white sm:hidden"
-          onClick={toggleNavbar}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </motion.button>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            ref={navRef}
-            className={`fixed bottom-0 left-0 top-0 z-10 h-screen w-64 bg-gray-900 p-4 text-white sm:hidden ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-            animate={"open"}
-            variants={variants}
-            initial={"closed"}
-            exit={"closed"}
+        <div className="ml-10 flex items-center">
+          <ThemeSwitcher className="hidden sm:block" />
+          <motion.button
+            className="text-primary-foreground sm:hidden"
+            onClick={toggleNavbar}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <motion.ul
-              className="flex flex-col space-y-4"
-              initial={"hidden"}
-              animate="visible"
-              exit="hidden"
-              variants={navList}
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </motion.button>
+        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.nav
+              ref={navRef}
+              className={`fixed bottom-0 left-0 top-0 z-10 h-screen w-64 bg-primary-foreground p-4 text-primary-foreground sm:hidden ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+              animate={"open"}
+              variants={variants}
+              initial={"closed"}
+              exit={"closed"}
             >
-              <h2 className="self-center text-xl">Menu</h2>
-              {navLinks.map((link, index) => (
-                <motion.li key={index} variants={navItem}>
-                  <CustomLink
-                    key={link.href}
-                    href={link.href}
-                    title={link.title}
-                  />
-                </motion.li>
-              ))}
-              <ThemeSwitcher />
-            </motion.ul>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+              <motion.ul
+                className="flex flex-col space-y-4"
+                initial={"hidden"}
+                animate="visible"
+                exit="hidden"
+                variants={navList}
+              >
+                <h2 className="self-center text-xl text-primary">Menu</h2>
+                {navLinks.map((link, index) => (
+                  <motion.li key={index} variants={navItem}>
+                    <CustomLink
+                      key={link.href}
+                      href={link.href}
+                      title={link.title}
+                    />
+                  </motion.li>
+                ))}
+                <ThemeSwitcher />
+              </motion.ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
+      <hr className="w-full border-black" />
     </header>
   );
 };
