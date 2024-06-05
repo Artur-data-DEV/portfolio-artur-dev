@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Home from "../page";
+import { IntersectionObserverMockInstance } from "../__mocks__/intersectionObserverMock";
 
 // Mock dependencies
 jest.mock("@uidotdev/usehooks", () => ({
@@ -10,6 +11,8 @@ jest.mock("../_components/animated/hire-me", () => ({
   __esModule: true,
   default: jest.fn(), // Mock HireMe as a Jest mock function
 }));
+
+global.IntersectionObserver = IntersectionObserverMockInstance;
 
 describe("Home", () => {
   it("should render the page with correct content", () => {
@@ -46,22 +49,24 @@ describe("Home", () => {
   });
 
   it("should adjust layout for different screen sizes", () => {
-    // Testar se o layout muda para diferentes tamanhos de tela
-    // Aqui, podemos simular um tamanho de tela menor e verificar se os elementos ainda são visíveis
+    // To be implemented
+    // Test if the layout adjusts for different screen sizes
+    // Here, you can simulate a smaller screen size and verify if the elements are still visible
     // render(<Home />);
     // window.innerWidth = 500;
     // window.innerHeight = 500;
-    // expect(screen.getByText("Algum elemento")).toBeInTheDocument();
+    // expect(screen.getByText("Some element")).toBeInTheDocument();
   });
 
   it("should handle button click events correctly", () => {
-    // Testar se o comportamento dos eventos de clique do botão está correto
-    // Aqui, podemos simular um clique em um botão e verificar se as ações esperadas são acionadas
+    // To be implemented
+    // Test if the button click events behave correctly
+    // Here, you can simulate a click on a button and verify if the expected actions are triggered
     // render(<Home />);
-    // const button = screen.getByText("Enviar");
+    // const button = screen.getByText("Send");
     // fireEvent.click(button);
-    // expect(acaoEsperada).toHaveBeenCalled();
+    // expect(expectedAction).toHaveBeenCalled();
   });
 
-  // Adicionar mais testes conforme necessário
+  // Add more tests as needed
 });
