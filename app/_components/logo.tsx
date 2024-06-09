@@ -7,10 +7,10 @@ const MotionLink = motion(Link);
 
 const Logo = () => {
   return (
-    <div className="flex items-center justify-center ">
+    <div className="flex items-center justify-center">
       <MotionLink
         href="/"
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-2xl font-bold text-slate-950"
+        className="z-999 flex h-16 w-16 items-center justify-center rounded-full bg-current text-2xl font-bold text-slate-950"
         whileHover={{
           scale: 1.3,
           backgroundColor: [
@@ -24,7 +24,7 @@ const Logo = () => {
           transition: { duration: 1, repeat: Infinity },
         }}
         whileTap={{ scale: 0.9 }}
-        whileInView={{ backgroundColor: "white" }}
+        whileInView={{ backgroundColor: "#FFF" }}
       >
         <MdOutlineConnectWithoutContact />
       </MotionLink>

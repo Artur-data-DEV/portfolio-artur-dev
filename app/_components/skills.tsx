@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -24,112 +25,192 @@ import {
 } from "react-icons/si";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaShieldDog } from "react-icons/fa6";
+import { IconType } from "react-icons";
+
+interface SkillIconsProps {
+  icon: IconType;
+  text: string;
+  color: string;
+  link: string;
+}
 
 const Skills = () => {
-  return (
-    <div className="py-8">
-      <h2 className="mb-4 text-2xl font-bold">Skills</h2>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        <div className="flex flex-col items-center rounded-lg bg-orange-500 p-4">
-          <FaHtml5 className="mb-2 text-4xl" />
-          <p className="text-lg">HTML</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-indigo-500 p-4 text-white">
-          <FaCss3Alt className="mb-2 text-4xl" />
-          <p className="text-lg">CSS</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-amber-500 p-4">
-          <FaJsSquare className="mb-2 text-4xl" />
-          <p className="text-lg">JavaScript</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-blue-500 p-4 text-white">
-          <SiTypescript className="mb-2 text-4xl" />
-          <p className="text-lg">TypeScript</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-sky-400 p-4">
-          <FaReact className="mb-2 text-4xl" />
-          <p className="text-lg">React</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-emerald-500 p-4 text-white">
-          <RiTailwindCssFill className="mb-2 text-4xl" />
-          <p className="text-lg">Tailwind CSS</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-lime-500 p-4 text-white">
-          <SiNodedotjs className="mb-2 text-4xl" />
-          <p className="text-lg">Node</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-indigo-700 p-4 text-white">
-          <FaPython className="mb-2 text-4xl" />
-          <p className="text-lg">Python</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-teal-900 p-4">
-          <DiMongodb className="mb-2 text-4xl" />
-          <p className="text-lg">MongoDB</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-blue-700 p-4 text-white">
-          <DiDocker className="mb-2 text-4xl" />
-          <p className="text-lg">Docker</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-blue-900 p-4 text-white">
-          <SiKubernetes className="mb-2 text-4xl" />
-          <p className="text-lg">Kubernetes</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-cyan-900 p-4 text-white">
-          <SiPrisma className="mb-2 text-4xl" />
-          <p className="text-lg">Prisma</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-slate-500 p-4">
-          <RiNextjsFill className="mb-2 text-4xl" />
-          <p className="text-lg">Next.js</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-purple-600 p-4 text-white">
-          <SiNestjs className="mb-2 text-4xl" />
-          <p className="text-lg">Nest.js</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-emerald-800 p-4 text-white">
-          <SiNeovim className="mb-2 text-4xl" />
-          <p className="text-lg">NeonDB</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-lime-500 p-4 text-white">
-          <SiPostgresql className="mb-2 text-4xl" />
-          <p className="text-lg">Postgre SQL</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-orange-500 p-4 text-white">
-          <FaAws className="mb-2 text-4xl" />
-          <p className="text-lg">AWS Cloud</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-slate-200 p-4 shadow-md">
-          <SiGooglecloud className="mb-2 text-4xl text-blue-500" />
-          <p className="text-lg text-gray-800">Google Cloud</p>
-        </div>
+  const [isVisible, setIsVisible] = useState(false);
 
-        <div className="flex flex-col items-center rounded-lg bg-rose-700 p-4 text-white">
-          <FaShieldDog className="mb-2 text-4xl" />
-          <p className="text-lg">Husky</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-orange-500 p-4 text-white">
-          <FaGitAlt className="mb-2 text-4xl" />
-          <p className="text-lg">Git</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-fuchsia-500 p-4 text-white">
-          <SiGithubactions className="mb-2 text-4xl" />
-          <p className="text-lg">Github CI/CD</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-gray-700 p-4 text-white">
-          <FaLinux className="mb-2 text-4xl" />
-          <p className="text-lg">Bash Linux</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-red-500 p-4 text-white">
-          <SiApachekafka className="mb-2 text-4xl" />
-          <p className="text-lg">Kafka</p>
-        </div>
-        <div className="flex flex-col items-center rounded-lg bg-blue-500 p-4 text-white">
-          <SiTrello className="mb-2 text-4xl" />
-          <p className="text-lg">Trello</p>
-        </div>
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className={`px-4 py-2 ${isVisible ? "animate-fade-in" : ""}`}>
+      <div className="grid grid-cols-3 gap-4 lg:grid-cols-4">
+        {skills.map((skill, index) => (
+          <SkillIcon key={index} {...skill} />
+        ))}
       </div>
     </div>
   );
 };
+
+const SkillIcon = ({ icon, text, color, link }: SkillIconsProps) => {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`flex flex-col items-center justify-center rounded-lg ${color} transform p-8 text-white transition-transform hover:scale-105`}
+    >
+      {icon({ size: 64 })} {/* Icon size increased to 64 */}
+      <p className="text-md mt-2 text-center sm:text-xl">{text}</p>
+    </a>
+  );
+};
+
+const skills = [
+  {
+    icon: FaHtml5,
+    text: "HTML",
+    color: "bg-orange-500",
+    link: "https://www.w3.org/html/",
+  },
+  {
+    icon: FaCss3Alt,
+    text: "CSS",
+    color: "bg-indigo-500",
+    link: "https://www.w3.org/Style/CSS/Overview.en.html",
+  },
+  {
+    icon: FaJsSquare,
+    text: "JavaScript",
+    color: "bg-amber-500",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    icon: SiTypescript,
+    text: "TypeScript",
+    color: "bg-blue-500",
+    link: "https://www.typescriptlang.org/",
+  },
+  {
+    icon: FaReact,
+    text: "React",
+    color: "bg-sky-400",
+    link: "https://reactjs.org/",
+  },
+  {
+    icon: RiTailwindCssFill,
+    text: "Tailwind CSS",
+    color: "bg-cyan-600",
+    link: "https://tailwindcss.com/",
+  },
+  {
+    icon: SiNodedotjs,
+    text: "Node.js",
+    color: "bg-lime-500",
+    link: "https://nodejs.org/",
+  },
+  {
+    icon: FaPython,
+    text: "Python",
+    color: "bg-indigo-700",
+    link: "https://www.python.org/",
+  },
+  {
+    icon: DiMongodb,
+    text: "MongoDB",
+    color: "bg-teal-700",
+    link: "https://www.mongodb.com/",
+  },
+  {
+    icon: DiDocker,
+    text: "Docker",
+    color: "bg-blue-700",
+    link: "https://www.docker.com/",
+  },
+  {
+    icon: SiKubernetes,
+    text: "Kubernetes",
+    color: "bg-blue-900",
+    link: "https://kubernetes.io/",
+  },
+  {
+    icon: SiPrisma,
+    text: "Prisma",
+    color: "bg-cyan-900",
+    link: "https://www.prisma.io/",
+  },
+  {
+    icon: RiNextjsFill,
+    text: "Next.js",
+    color: "bg-slate-500",
+    link: "https://nextjs.org/",
+  },
+  {
+    icon: SiNestjs,
+    text: "Nest.js",
+    color: "bg-rose-700",
+    link: "https://nestjs.com/",
+  },
+  {
+    icon: SiNeovim,
+    text: "NeonDB",
+    color: "bg-green-600",
+    link: "https://neon.tech",
+  },
+  {
+    icon: SiPostgresql,
+    text: "PostgreSQL",
+    color: "bg-sky-900",
+    link: "https://www.postgresql.org/",
+  },
+  {
+    icon: FaAws,
+    text: "AWS Cloud",
+    color: "bg-amber-600",
+    link: "https://aws.amazon.com/",
+  },
+  {
+    icon: SiGooglecloud,
+    text: "Google Cloud",
+    color: "bg-slate-400",
+    link: "https://cloud.google.com/",
+  },
+  {
+    icon: FaShieldDog,
+    text: "Husky",
+    color: "bg-pink-700",
+    link: "https://www.husky.io/",
+  },
+  {
+    icon: FaGitAlt,
+    text: "Git",
+    color: "bg-orange-600",
+    link: "https://git-scm.com/",
+  },
+  {
+    icon: SiGithubactions,
+    text: "Github CI/CD",
+    color: "bg-fuchsia-800",
+    link: "https://github.com/features/actions",
+  },
+  {
+    icon: FaLinux,
+    text: "Bash Linux",
+    color: "bg-gray-600",
+    link: "https://www.linux.org/",
+  },
+  {
+    icon: SiApachekafka,
+    text: "Kafka",
+    color: "bg-red-600",
+    link: "https://kafka.apache.org/",
+  },
+  {
+    icon: SiTrello,
+    text: "Trello",
+    color: "bg-blue-600",
+    link: "https://trello.com/",
+  },
+];
 
 export default Skills;

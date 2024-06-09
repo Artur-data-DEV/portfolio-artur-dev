@@ -4,12 +4,11 @@ import AnimatedText from "./_components/animated/animated-text";
 import Link from "next/link";
 import { Button } from "./_components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import HireMe from "./_components/animated/hire-me";
 import Programmer from "../public/programmer.png";
 import AnimatedMotionComponent from "./_components/animated/animated-tag";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-export default function Home() {
+const Home = () => {
   const windowSize = useWindowSize();
   const isMobileScreen = windowSize?.width ? windowSize.width <= 768 : false;
   const isExtraLargeScreen = windowSize?.width
@@ -17,8 +16,7 @@ export default function Home() {
     : false;
   return (
     <>
-      <main className="text-dark flex min-h-screen w-full flex-col items-center justify-center px-4 sm:max-w-[1000px] sm:px-8 lg:max-w-[1200px] lg:flex-row xl:max-w-[1500px] 2xl:max-w-[1800px]">
-        <div className="flex w-full flex-col items-center justify-between lg:flex-row">
+      <main className=" text-current bg-primary-foreground flex min-h-screen w-full flex-col items-center justify-center px-4 sm:max-w-[1000px] sm:px-8 lg:max-w-[1200px] lg:flex-row xl:max-w-[1500px] 2xl:max-w-[2000px]">
           <AnimatedMotionComponent
             className={
               isMobileScreen ? "h-1/2 w-1/2" : "h-auto w-[40vw] lg:mr-4"
@@ -106,9 +104,9 @@ export default function Home() {
               />
             </AnimatedMotionComponent>
           )}
-        </div>
-        <HireMe />
       </main>
     </>
   );
-}
+};
+
+export default Home;

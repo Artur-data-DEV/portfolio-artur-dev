@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
-interface HeroProps {}
-
 const empresas: string[] = [
   "Algar Telecom",
   "BRB",
@@ -23,7 +21,7 @@ const divideEmpresas = (empresas: string[]): string[][] => {
   return empresasDivididas;
 };
 
-const Hero: React.FC<HeroProps> = () => {
+const Hero = () => {
   const empresasDivididas = divideEmpresas(empresas);
 
   return (
