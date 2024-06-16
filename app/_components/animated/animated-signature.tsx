@@ -1,5 +1,6 @@
+"use client";
 import { motion, useAnimation } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const Signature = () => {
