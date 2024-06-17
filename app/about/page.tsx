@@ -6,7 +6,9 @@ import { MutableRefObject, useRef } from "react";
 import Skills from "../_components/skills";
 import { calcularIdade } from "../utils/functions/calcularIdade";
 import Experience from "../_components/experience";
-import PlayOnce from "../icons/lordicon";
+const DynamicLordicon = dynamic(() => import("../icons/lordicon"), {
+  ssr: false,
+});
 import Signature from "../_components/animated/animated-signature";
 import itdev from "@/app/icons/itdev.json";
 import fork from "@/app/icons/fork.json";
@@ -14,6 +16,7 @@ import webConference from "@/app/icons/web-conference.json";
 import cmd from "@/app/icons/cmd.json";
 import restApi from "@/app/icons/rest-api.json";
 import puzzle from "@/app/icons/puzzle.json";
+import dynamic from "next/dynamic";
 
 const AboutPage = () => {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
@@ -72,7 +75,7 @@ const AboutPage = () => {
             <div className="flex flex-col gap-5 px-1 text-justify text-lg">
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
-                  <PlayOnce icon={fork} />
+                  <DynamicLordicon icon={fork} />
                 </span>
                 <p>
                   Natural de Brasília, tenho {calcularIdade("1999-09-29")} anos
@@ -89,13 +92,13 @@ const AboutPage = () => {
                   <strong> inovar</strong> a partir delas.
                 </p>
                 <span className="ml-2 inline-block">
-                  <PlayOnce icon={puzzle} />
+                  <DynamicLordicon icon={puzzle} />
                 </span>
               </div>
 
               <div className="flex items-center">
                 <span className="ml-2 inline-block">
-                  <PlayOnce icon={restApi} />
+                  <DynamicLordicon icon={restApi} />
                 </span>
                 <p>
                   Com uma formação sólida desenvolvimento de sistemas, me
@@ -109,12 +112,12 @@ const AboutPage = () => {
                 usuário dinâmicas e eficientes, além de implementar servidores
                 robustos e escaláveis.
                 <span className="ml-2 inline-block">
-                  <PlayOnce icon={cmd} />
+                  <DynamicLordicon icon={cmd} />
                 </span>
               </p>
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
-                  <PlayOnce icon={webConference} />
+                  <DynamicLordicon icon={webConference} />
                 </span>
                 <p>
                   Em minha jornada profissional, trabalhei em uma variedade de
@@ -134,7 +137,7 @@ const AboutPage = () => {
                 de crescimento, enquanto continuo a aprimorar e expandir meu
                 conhecimento em tecnologias emergentes.
                 <span className="ml-2 inline-block">
-                  <PlayOnce icon={itdev} />
+                  <DynamicLordicon icon={itdev} />
                 </span>
               </p>
             </div>

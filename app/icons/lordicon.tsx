@@ -2,17 +2,20 @@
 import { Player } from "@lordicon/react";
 import { useRef } from "react";
 
-const DeveloperIcon = ({ icon }: { icon: any }) => {
+const Lordicon = ({ icon }: { icon: any }) => {
   const playerRef = useRef<Player>(null);
 
   const handleMouseEnter = () => {
-    setTimeout(() => {
-      playerRef.current?.playFromBeginning();
-    }, 3000);
+    playerRef.current?.playFromBeginning();
   };
 
   const handleMouseLeave = () => {
     playerRef.current?.pause();
+  };
+
+  const handleAnimationComplete = () => {
+    // Restart the animation
+    playerRef.current?.playFromBeginning();
   };
 
   return (
@@ -22,15 +25,11 @@ const DeveloperIcon = ({ icon }: { icon: any }) => {
         ref={playerRef}
         size={120}
         renderMode="SOFTWARE"
-        onComplete={() =>
-          setTimeout(() => {
-            playerRef.current?.playFromBeginning();
-          }, 3000)
-        }
+        onComplete={handleAnimationComplete} // Call handleAnimationComplete when animation completes
         onReady={() => playerRef.current?.playFromBeginning()}
       />
     </div>
   );
 };
 
-export default DeveloperIcon;
+export default Lordicon;
