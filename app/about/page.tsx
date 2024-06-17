@@ -1,23 +1,23 @@
 "use client";
-import Brain from "@/app/_components/animated/animated-brain";
 import { motion, useInView, useScroll } from "framer-motion";
-import Image from "next/image";
 import { MutableRefObject, useRef } from "react";
-import Skills from "../_components/skills";
-import { calcularIdade } from "../utils/functions/calcularIdade";
+import { calcularIdade } from "@/app/utils/functions/calcularIdade";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import Brain from "@/app/_components/animated/animated-brain";
+import Signature from "@/app/_components/animated/animated-signature";
 import Experience from "../_components/experience";
-const DynamicLordicon = dynamic(() => import("../icons/lordicon"), {
-  ssr: false,
-});
-import Signature from "../_components/animated/animated-signature";
+import Skills from "@/app/_components/skills";
 import itdev from "@/app/icons/itdev.json";
 import fork from "@/app/icons/fork.json";
 import webConference from "@/app/icons/web-conference.json";
 import cmd from "@/app/icons/cmd.json";
 import restApi from "@/app/icons/rest-api.json";
 import puzzle from "@/app/icons/puzzle.json";
-import dynamic from "next/dynamic";
 
+const DynamicLordicon = dynamic(() => import("../icons/lordicon"), {
+  ssr: false,
+});
 const AboutPage = () => {
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null);
@@ -57,7 +57,7 @@ const AboutPage = () => {
       transition={{ duration: 0.5 }}
     >
       <div
-        className="h-full overflow-x-hidden overflow-y-scroll lg:flex"
+        className="flex h-full overflow-x-hidden overflow-y-scroll lg:flex"
         ref={containerRef}
       >
         <div className="flex flex-col gap-24 p-4 md:gap-32 lg:w-2/3 lg:pr-0 xl:w-1/2 xl:gap-64 ">
@@ -75,7 +75,7 @@ const AboutPage = () => {
             <div className="flex flex-col gap-5 px-1 text-justify text-lg">
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
-                  <DynamicLordicon icon={fork} />
+                  <DynamicLordicon icon={fork} delay={5000} />
                 </span>
                 <p>
                   Natural de Brasília, tenho {calcularIdade("1999-09-29")} anos
@@ -92,13 +92,13 @@ const AboutPage = () => {
                   <strong> inovar</strong> a partir delas.
                 </p>
                 <span className="ml-2 inline-block">
-                  <DynamicLordicon icon={puzzle} />
+                  <DynamicLordicon icon={puzzle} delay={3500} />
                 </span>
               </div>
 
               <div className="flex items-center">
                 <span className="ml-2 inline-block">
-                  <DynamicLordicon icon={restApi} />
+                  <DynamicLordicon icon={restApi} delay={5000} />
                 </span>
                 <p>
                   Com uma formação sólida desenvolvimento de sistemas, me
@@ -112,12 +112,12 @@ const AboutPage = () => {
                 usuário dinâmicas e eficientes, além de implementar servidores
                 robustos e escaláveis.
                 <span className="ml-2 inline-block">
-                  <DynamicLordicon icon={cmd} />
+                  <DynamicLordicon icon={cmd} delay={5000} />
                 </span>
               </p>
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
-                  <DynamicLordicon icon={webConference} />
+                  <DynamicLordicon icon={webConference} delay={5000} />
                 </span>
                 <p>
                   Em minha jornada profissional, trabalhei em uma variedade de
@@ -137,7 +137,7 @@ const AboutPage = () => {
                 de crescimento, enquanto continuo a aprimorar e expandir meu
                 conhecimento em tecnologias emergentes.
                 <span className="ml-2 inline-block">
-                  <DynamicLordicon icon={itdev} />
+                  <DynamicLordicon icon={itdev} delay={3500} />
                 </span>
               </p>
             </div>
@@ -241,9 +241,17 @@ const AboutPage = () => {
             </motion.div>
           </div>
         </div>
-        <div className="sticky top-0 hidden w-1/3 overflow-hidden lg:block xl:w-1/2">
-          <Brain scrollYProgress={scrollYProgress} />
-        </div>
+        <motion.div
+          style={{ width: "50%", height: "100vh" }}
+          initial={{ x: "-50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="lg xl/2 sticky top-0 block w-1/2 overflow-hidden"
+        >
+          <div className={"h-full w-full"}>
+            <Brain scrollYProgress={scrollYProgress} />
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
