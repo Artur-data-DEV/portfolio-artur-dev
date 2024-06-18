@@ -27,7 +27,7 @@
   .dark-classic {
     --background: hsl(210, 15%, 10%);
     --foreground: hsl(210, 15%, 96%);
-    --card: hsl(210, 20%, 30%) ;
+    --card: hsl(210, 20%, 30%);
     --primary: hsl(215, 50%, 30%);
     --secondary: hsl(190, 50%, 40%);
     --muted: hsl(210, 20%, 30%);
@@ -113,6 +113,9 @@
       0%,
       100%
     ); /* Novo: Cor branca para textos no tema escuro */
+  }
+  .text-wrap {
+    shape-outside: circle(50%);
   }
 
   * {
