@@ -57,7 +57,7 @@ const AboutPage = () => {
       transition={{ duration: 0.5 }}
     >
       <div
-        className="flex h-full overflow-x-hidden overflow-y-scroll lg:flex"
+        className="flex h-full overflow-x-hidden overflow-y-scroll lg:flex "
         ref={containerRef}
       >
         <div className="flex flex-col gap-24 p-4 md:gap-32 lg:w-2/3 lg:pr-0 xl:w-1/2 xl:gap-64 ">
@@ -70,9 +70,9 @@ const AboutPage = () => {
                 height={112}
                 className="h-28 w-28 rounded-full object-cover"
               />
-              <h1 className="self-end text-2xl font-bold">BIOGRAFIA</h1>
+              <h1 className="self-center text-2xl font-bold">BIOGRAFIA</h1>
             </div>
-            <div className="flex flex-col gap-5 px-1 text-justify text-lg">
+            <div className="flex flex-col gap-5 px-1 text-justify text-lg text-current">
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
                   <DynamicLordicon icon={fork} delay={5000} />
@@ -106,15 +106,19 @@ const AboutPage = () => {
                   as tecnologias React e Node.
                 </p>
               </div>
-              <p className="flex items-center ">
-                Creio que minha expertise em ambas as áreas me tornaram um
-                profissional altamente qualificado, capaz de criar interfaces de
-                usuário dinâmicas e eficientes, além de implementar servidores
-                robustos e escaláveis.
-                <span className="ml-2 inline-block">
-                  <DynamicLordicon icon={cmd} delay={5000} />
-                </span>
-              </p>
+              <div className="flex items-center rounded-3xl">
+                <div className="flex">
+                  <p>
+                    Creio que minha expertise em ambas as áreas me tornaram um
+                    profissional altamente qualificado, capaz de criar
+                    interfaces de usuário dinâmicas e eficientes, além de
+                    implementar servidores robustos e escaláveis.
+                  </p>
+                  <span className="ml-2 inline-block">
+                    <DynamicLordicon icon={cmd} delay={5000} />
+                  </span>
+                </div>
+              </div>
               <div className="flex items-center">
                 <span className="mr-2 inline-block">
                   <DynamicLordicon icon={webConference} delay={5000} />
@@ -128,7 +132,7 @@ const AboutPage = () => {
                   desenvolvimento ágeis.
                 </p>
               </div>
-              <p className="flex items-center ">
+              <p className="flex items-center rounded-3xl">
                 Além de ser minha profissão, sou entusiasta da comunidade de
                 tecnologia, participando ativamente de eventos, meetups e
                 contribuindo para projetos de código aberto, sou conhecido por

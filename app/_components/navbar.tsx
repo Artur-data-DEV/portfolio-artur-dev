@@ -104,7 +104,7 @@ const Navbar = () => {
     <header>
       <div className="h-full w-screen items-center justify-between bg-primary px-4 py-4 font-medium">
         <div className="flex w-full items-center justify-between">
-          <nav className="mx-3 hidden space-x-1 sm:flex sm:space-x-3 ">
+          <nav className="mx-3 hidden space-x-1 text-foreground sm:flex sm:space-x-3 ">
             {navLinks.map((link) => (
               <CustomLink key={link.href} href={link.href} title={link.title} />
             ))}
@@ -122,16 +122,16 @@ const Navbar = () => {
                   rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="z-30 text-primary-foreground"
+                  className="z-30 text-foreground"
                 >
                   {link.icon}
                 </motion.a>
               ))}
             </div>
-            <ThemeSwitcher className="hidden pr-4 sm:flex" />
+            <ThemeSwitcher className="hidden pr-4 text-foreground sm:flex" />
           </div>
           <motion.button
-            className="pr-4 text-primary-foreground sm:hidden"
+            className="pr-4 text-foreground sm:hidden"
             onClick={toggleNavbar}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

@@ -18,10 +18,10 @@ const CustomLink = ({ href, title, className }: CustomLinkProps) => {
       >
         {title}
         <span
-          className={`ease absolute bottom-0.5 left-1/2  h-[1px] bg-primary transition-[width] duration-300 group-hover:w-1/2 sm:bg-primary-foreground ${pathname === href ? "w-1/2" : "w-0"}`}
+          className={`ease absolute bottom-0.5 left-1/2  h-[1px] bg-primary transition-[width] duration-300 group-hover:w-1/2 sm:bg-current ${pathname === href ? "w-1/2" : "w-0"}`}
         />
         <span
-          className={`ease absolute bottom-0.5 right-1/2 h-[1px] bg-primary transition-[width] duration-300 group-hover:w-1/2 sm:bg-primary-foreground ${pathname === href ? "w-1/2" : "w-0"}`}
+          className={`ease absolute bottom-0.5 right-1/2 h-[1px] bg-primary transition-[width] duration-300 group-hover:w-1/2 sm:bg-current ${pathname === href ? "w-1/2" : "w-0"}`}
         />
       </Link>
     </>

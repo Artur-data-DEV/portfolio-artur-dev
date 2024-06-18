@@ -73,11 +73,11 @@ const Home = () => {
         <div className="flex w-full flex-col items-center lg:ml-4 lg:w-1/2 lg:items-start">
           <AnimatedText
             text="Olá, eu sou o Artur! 👋|br|Transformando ideias em realidade com código e design"
-            className="text-left text-xl sm:text-2xl lg:text-3xl xl:text-5xl"
+            className="text-left text-xl text-primary sm:text-2xl lg:text-3xl xl:text-5xl"
           />
           <AnimatedMotionComponent
             transition={{ duration: 1 }}
-            className="my-4 text-xs sm:text-sm lg:text-base"
+            className="my-4 text-xs drop-shadow-lg sm:text-sm lg:text-base"
             tag="p"
           >
             Desenvolvedor de software com mais de 5 anos de experiência em
@@ -92,7 +92,7 @@ const Home = () => {
             tag="div"
           >
             <div className="relative">
-              <Button onClick={toggleDropdown}>
+              <Button onClick={toggleDropdown} className={"text-foreground"}>
                 Download Curriculum
                 <FaExternalLinkAlt className="mb-1 ml-1 w-4 sm:w-5 lg:w-6" />
               </Button>
@@ -150,7 +150,7 @@ const Home = () => {
                     onClick={closeDropdown}
                     className="absolute right-0 top-0 text-gray-600  focus:outline-none"
                   >
-                    <div className="-mt-10 flex gap-1 font-bold text-destructive/90 hover:text-destructive">
+                    <div className="text-destructive/90 -mt-10 flex gap-1 font-bold hover:text-destructive">
                       <span className="">Close</span>
                       <SlClose size={24} />
                     </div>
@@ -162,7 +162,7 @@ const Home = () => {
               <Link
                 href="https://curriculum-artur.vercel.app/"
                 target="_blank"
-                className="text-xs sm:text-sm lg:text-base"
+                className="lg:text-md text-xs text-primary sm:text-sm"
               >
                 Currículo Online
               </Link>
@@ -172,11 +172,11 @@ const Home = () => {
             className="mt-2 flex flex-wrap items-center gap-4 self-center lg:self-start"
             tag="div"
           >
-            <Button asChild variant={"ghost"} className="-pl-12 mt-2">
+            <Button asChild variant={"ghost"} className="mt-2">
               <Link
                 href={"mailto:arturcamposba99@gmail.com"}
                 target="_blank"
-                className="text-xs font-medium underline sm:text-sm lg:text-base"
+                className="lg:text-md text-xs font-medium text-primary underline sm:text-sm"
               >
                 Entre em contato comigo
               </Link>

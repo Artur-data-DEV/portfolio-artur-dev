@@ -4,7 +4,7 @@ import { Vortex } from "react-loader-spinner";
 
 const LoadingText = () => (
   <motion.span
-    className="text-lg font-semibold text-gray-800"
+    className="text-lg font-semibold"
     animate={{
       scale: [1, 1.1, 1],
       opacity: [0.5, 1, 0.5],
