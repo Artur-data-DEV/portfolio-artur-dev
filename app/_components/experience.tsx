@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { experiences } from "../utils/data";
+import Image from "next/image";
 
 const Experience = () => {
   return (
@@ -28,7 +29,15 @@ const Experience = () => {
             }`}
           >
             {/* LEFT */}
-            <div className="w-11/12"></div>
+            <div className="flex w-11/12 items-center justify-center align-middle">
+              <Image
+                src={experience.image?.url || ""}
+                alt={experience.company}
+                width={experience.image?.width || 0}
+                height={experience.image?.heigth || 0}
+                sizes="100vw"
+              />
+            </div>
             {/* CENTER */}
             <div className="flex w-1/12 justify-center">
               {/* LINE */}
@@ -48,11 +57,11 @@ const Experience = () => {
                   </div>
                 </div>
                 {/* JOB DESC */}
-                <div className="pb-2 text-xs sm:text-sm md:text-base">
+                <div className="pb-2 text-xs sm:text-sm">
                   {experience.description}
                 </div>
                 {/* JOB DATE */}
-                <div className="text-sm font-semibold italic text-destructive">
+                <div className="text-xs font-semibold italic text-destructive sm:text-sm">
                   Início: {experience.startDate} <br />
                   Fim: {experience.endDate}
                 </div>
