@@ -3,7 +3,7 @@ import { experiences } from "../utils/data";
 
 const Experience = () => {
   return (
-    <div className="flex flex-col justify-center gap-12">
+    <div className="flex w-full flex-col justify-center">
       {/* EXPERIENCE TITLE */}
       <motion.h1
         initial={{ x: "-300px" }}
@@ -14,19 +14,23 @@ const Experience = () => {
         EXPERIENCE
       </motion.h1>
       {/* EXPERIENCE LIST */}
-      <motion.div initial={{ x: "-300px" }} animate={{ x: "0" }} className="">
+      <motion.div
+        initial={{ x: "-300px" }}
+        animate={{ x: "0" }}
+        className="max-w-full"
+      >
         {/* MAP EXPERIENCES */}
         {experiences.map((experience, index) => (
           <div
             key={index}
-            className={`flex h-auto justify-between ${
+            className={`flex h-auto w-full justify-stretch  ${
               index % 2 === 0 ? "flex-row-reverse" : ""
             }`}
           >
             {/* LEFT */}
-            <div className="w-1/3"></div>
+            <div className="w-11/12"></div>
             {/* CENTER */}
-            <div className="flex w-1/6 justify-center">
+            <div className="flex w-1/12 justify-center">
               {/* LINE */}
               <div className="relative h-full w-1 rounded bg-gray-600">
                 {/* LINE CIRCLE */}
@@ -34,22 +38,26 @@ const Experience = () => {
               </div>
             </div>
             {/* RIGHT */}
-            <div className="w-1/3">
+            <div className="w-11/12 ">
+              <div className={"p-1"}>
+                <div className="rounded-b-lg rounded-s-lg py-3 text-sm font-semibold text-secondary md:text-base">
+                  {experience.title}
+                  {/* JOB COMPANY */}
+                  <div className="w-fit rounded p-1 text-xs font-semibold text-accent sm:text-sm">
+                    - {experience.company}
+                  </div>
+                </div>
+                {/* JOB DESC */}
+                <div className="pb-2 text-xs sm:text-sm md:text-base">
+                  {experience.description}
+                </div>
+                {/* JOB DATE */}
+                <div className="text-sm font-semibold italic text-destructive">
+                  Início: {experience.startDate} <br />
+                  Fim: {experience.endDate}
+                </div>
+              </div>
               {/* JOB TITLE */}
-              <div className="rounded-b-lg rounded-s-lg p-3 font-semibold text-md">
-                {experience.title}
-                {/* JOB COMPANY */}
-              <div className="w-fit rounded  p-1 text-xs font-semibold text-muted-foreground">
-                - {experience.company}
-              </div>
-              </div>
-              {/* JOB DESC */}
-              <div className="p-3 text-sm italic">{experience.description}</div>
-              {/* JOB DATE */}
-              <div className="p-3 text-sm font-semibold text-red-400">
-                Início: {experience.startDate} - Fim: {experience.endDate}
-              </div>
-              
             </div>
           </div>
         ))}

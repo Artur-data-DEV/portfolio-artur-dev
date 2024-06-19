@@ -27,7 +27,7 @@ const Lordicon = ({ icon, delay = 0 }: LordiconProps) => {
           ref={playerRef}
           size={120}
           renderMode="HARDWARE"
-          onReady={() => playerRef.current?.play()}
+          onReady={() => playerRef.current?.playFromBeginning()}
           onComplete={() =>
             setTimeout(() => playerRef.current?.playFromBeginning(), delay)
           }

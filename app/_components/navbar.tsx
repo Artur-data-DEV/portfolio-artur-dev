@@ -101,10 +101,10 @@ const Navbar = () => {
   ];
 
   return (
-    <header>
-      <div className="h-full w-screen items-center justify-between bg-primary px-4 py-4 font-medium">
+    <header className="sticky top-0 z-40">
+      <div className="h-full w-screen items-center justify-between bg-primary px-4 py-4 font-medium ">
         <div className="flex w-full items-center justify-between">
-          <nav className="mx-3 hidden space-x-1 text-foreground sm:flex sm:space-x-3 ">
+          <nav className="mx-3 hidden space-x-1 text-foreground  sm:flex sm:space-x-3 ">
             {navLinks.map((link) => (
               <CustomLink key={link.href} href={link.href} title={link.title} />
             ))}
@@ -142,7 +142,7 @@ const Navbar = () => {
         {isOpen && (
           <motion.nav
             ref={navRef}
-            className={`fixed bottom-0 left-0 top-0 z-50 h-screen w-64 bg-primary-foreground p-4 text-primary-foreground md:hidden ${
+            className={`  fixed bottom-0 left-0 top-0 z-50 h-screen w-64 rounded-r-lg border-r-2 border-current bg-background p-4 text-primary-foreground md:hidden ${
               isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
             animate={"open"}
@@ -158,7 +158,16 @@ const Navbar = () => {
             >
               <h2 className="self-center text-xl text-primary">Menu</h2>
               {navLinks.map((link, index) => (
-                <motion.li key={index} variants={navItem}>
+                <motion.li
+                  key={index}
+                  variants={navItem}
+                  className={"w-fit py-2"}
+                  onClick={() =>
+                    setTimeout(() => {
+                      () => setIsOpen(false);
+                    }, 2000)
+                  }
+                >
                   <CustomLink
                     key={link.href}
                     href={link.href}

@@ -44,38 +44,37 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
   }, []);
 
   return (
-    <div className={`relative inline-block ${className}`}>
+    <div
+      className={`relative inline-block ${className} h-full w-full`}
+      ref={dropdownRef}
+    >
       <Button
         variant="ghost"
         size="icon"
         onClick={toggleDropdown}
         aria-haspopup="true"
         aria-expanded={isOpen ? "true" : "false"}
-        className="rounded-full bg-primary hover:bg-muted-foreground"
+        className="hover:bg-rainbow rounded-full"
       >
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="self-left text-primary-foreground "
         >
           <VscColorMode size={18} />
         </motion.div>
       </Button>
       {isOpen && (
         <motion.div
-          ref={dropdownRef}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.2 }}
-          className="absolute right-1 top-16 z-30 mt-3 w-48 origin-top-right rounded-md bg-primary-foreground shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute right-1 top-16 z-[999] mt-3 w-48 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
         >
-          <div
-            role="none"
-          >
+          <div role="none">
             {Object.entries(themeMapping).map(([key, value]) => (
               <motion.button
                 key={key}
@@ -85,7 +84,7 @@ const ThemeSwitcher = ({ className }: { className?: string }) => {
                 className={`relative block w-full px-4 py-2 text-left text-sm transition-colors duration-200 ${
                   theme === key
                     ? "border border-primary bg-primary text-primary-foreground"
-                    : "bg-primary-foreground text-primary"
+                    : "bg-card text-accent"
                 }`}
                 role="menuitem"
               >

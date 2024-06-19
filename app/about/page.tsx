@@ -147,7 +147,7 @@ const AboutPage = () => {
           initial={{ x: "-50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="lg xl/2 sticky top-0 block w-1/2 overflow-hidden"
+          className="sticky top-0 block w-1/2 overflow-hidden"
         >
           <div className={"h-full w-full"}>
             <Brain scrollYProgress={scrollYProgress} />

@@ -31,7 +31,9 @@ const BiographyItem: React.FC<BiographyItemProps> = ({
       <div className="flex-shrink-0 rounded-full bg-muted p-2">
         <DynamicLordicon icon={icon} delay={delay} />
       </div>
-      <div className="ml-2 max-w-[calc(100%-2rem)] rounded-lg p-2">{text}</div>
+      <div className="ml-2 max-w-[calc(100%-2rem)] rounded-lg p-2 text-sm sm:text-base lg:text-lg xl:text-xl">
+        {text}
+      </div>
     </div>
   );
 };
