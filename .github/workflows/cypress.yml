@@ -1,12 +1,13 @@
-name: Cypress Tests
+name: 🧪 Cypress Tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main  # ajuste para a branch principal do seu projeto
+      - main  # Ajuste para a branch principal do seu projeto
   pull_request:
     branches:
-      - main  # ajuste para a branch principal do seu projeto
+      - main  # Ajuste para a branch principal do seu projeto
 
 jobs:
   test:
@@ -16,8 +17,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.14.0"  # Versão específica do Node.js compatível com seu projeto
+
       - name: Install dependencies
         run: npm install
 
+      - name: Start development server
+        run: |
+          npm run dev > server.log 2>&1 &  # Inicia o servidor de desenvolvimento em segundo plano
+          sleep 10  # Aguarda 10 segundos para o servidor iniciar (ajuste conforme necessário)
+
+          # Mostra os últimos 1000 caracteres do arquivo de log para diagnóstico
+          tail -n 1000 server.log
+
       - name: Run Cypress tests
-        run: npm run cypress:run  # ajuste para o seu script npm que roda os testes Cypress
+        run: npm run cypress:run  # Executa os testes Cypress (ajuste conforme necessário)
+
+      - name: Upload Cypress screenshots and videos (if available)
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifacts
+          path: cypress/screenshots, cypress/videos  # Caminhos onde estão os screenshots e vídeos dos testes
+
+      - name: Archive test results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: cypress/results  # Caminho onde estão os resultados dos testes
+
+      - name: Save Cypress test results
+        if: always()
+        run: |
+          mkdir -p test-results/cypress
+          mv cypress/results/test*.xml test-results/cypress || true
+        continue-on-error: true  # Continua mesmo se mover os resultados falhar
