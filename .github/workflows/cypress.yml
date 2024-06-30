@@ -1,0 +1,23 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main  # ajuste para a branch principal do seu projeto
+  pull_request:
+    branches:
+      - main  # ajuste para a branch principal do seu projeto
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm run cypress:run  # ajuste para o seu script npm que roda os testes Cypress

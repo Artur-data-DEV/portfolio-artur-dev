@@ -92,33 +92,39 @@ const Home = () => {
             tag="div"
           >
             <div className="relative">
-              <Button onClick={toggleDropdown} className={"text-foreground"}>
+              <Button
+                onClick={toggleDropdown}
+                className={"text-foreground"}
+                data-cy="download-curriculum-dropdown"
+              >
                 Download Curriculum
                 <FaExternalLinkAlt className="mb-1 ml-1 w-4 sm:w-5 lg:w-6" />
               </Button>
               {showDropdown && (
                 <div
                   ref={dropdownRef}
-                  className="absolute left-0 top-full z-10 mt-1 h-fit w-52 rounded-sm bg-white shadow-lg "
+                  className="absolute left-0 top-full z-10 mt-1 h-fit w-full rounded-sm bg-white shadow-lg "
                 >
-                  <button
+                  <Button
                     onClick={() => handleLanguageSelect("English")}
-                    className="w-full items-center gap-1 text-left align-middle text-sm text-gray-800 hover:bg-gray-100"
+                    data-cy="dropdown-english-button"
+                    className="w-full items-center justify-start gap-1 bg-transparent text-left align-middle text-sm text-gray-800 hover:bg-gray-100"
                   >
-                    <div className="flex items-center gap-1 px-5 align-middle">
+                    <p className="flex items-center gap-1 px-5 align-middle">
                       <LiaFlagUsaSolid size={22} />
                       <span>English</span>
-                    </div>
-                  </button>
-                  <button
+                    </p>
+                  </Button>
+                  <Button
                     onClick={() => handleLanguageSelect("Português")}
-                    className="flex w-full items-center gap-1 text-left align-middle text-sm text-gray-800 hover:bg-gray-100"
+                    data-cy="dropdown-portuguese-button"
+                    className="flex w-full items-center justify-start gap-1 bg-transparent text-left align-middle text-sm text-gray-800 hover:bg-gray-100"
                   >
                     <div className="flex items-center gap-1 px-5 align-middle">
                       <GiBrazilFlag size={22} />
                       <span>Português</span>
                     </div>
-                  </button>
+                  </Button>
                 </div>
               )}
             </div>
@@ -135,30 +141,39 @@ const Home = () => {
                     title={`Curriculum in ${selectedLanguage}`}
                   ></iframe>
                   <div className="-bottom-15 absolute left-0 right-0 flex justify-center p-4">
-                    <Link
-                      href={
-                        selectedLanguage === "English"
-                          ? "https://drive.google.com/uc?export=download&id=1sVaQhEoGYpKKYWrhgQBFuA5xlMYMQi_z"
-                          : "https://drive.google.com/uc?export=download&id=1JdHBUSTqG3b-zzO0XU5GjWTDy2-couXa"
-                      }
-                      className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+                    <Button
+                      asChild
+                      data-cy="download-curriculum"
+                      className=" text-white hover:bg-accent hover:text-accent-foreground"
                     >
-                      <span>Download Curriculum - {selectedLanguage}</span>
-                    </Link>
+                      <Link
+                        href={
+                          selectedLanguage === "English"
+                            ? "https://drive.google.com/uc?export=download&id=1sVaQhEoGYpKKYWrhgQBFuA5xlMYMQi_z"
+                            : "https://drive.google.com/uc?export=download&id=1JdHBUSTqG3b-zzO0XU5GjWTDy2-couXa"
+                        }
+                      >
+                        Download Curriculum - {selectedLanguage}
+                      </Link>
+                    </Button>
                   </div>
                   <button
                     onClick={closeDropdown}
                     className="absolute right-0 top-0 text-gray-600  focus:outline-none"
                   >
-                    <div className="text-destructive/90 -mt-10 flex gap-1 font-bold hover:text-destructive">
-                      <span className="">Close</span>
-                      <SlClose size={24} />
+                    <div className="absolute right-0 top-2 -mt-10 flex font-bold text-gray-600 transition duration-300 ease-in-out">
+                      <SlClose className="hover:text-destructive" size={24} />
                     </div>
                   </button>
                 </div>
               </div>
             )}
-            <Button asChild variant={"outline"} className="border-black">
+            <Button
+              asChild
+              variant={"outline"}
+              className="border-black"
+              data-cy="curriculum-online-site"
+            >
               <Link
                 href="https://curriculum-artur.vercel.app/"
                 target="_blank"
@@ -172,7 +187,12 @@ const Home = () => {
             className="mt-2 flex flex-wrap items-center gap-4 self-center lg:self-start"
             tag="div"
           >
-            <Button asChild variant={"ghost"} className="mt-2">
+            <Button
+              asChild
+              variant={"ghost"}
+              className="mt-2"
+              data-cy="get-in-touch"
+            >
               <Link
                 href={"mailto:arturcamposba99@gmail.com"}
                 target="_blank"
