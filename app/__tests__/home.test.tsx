@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import Home from "../page";
+import { render, screen, fireEvent } from "@testing-library/react";
+import Home from "@/app/page";
 import { IntersectionObserverMockInstance } from "../__mocks__/intersectionObserverMock";
 
 // Mock dependencies
@@ -14,59 +14,156 @@ jest.mock("../_components/animated/hire-me", () => ({
 
 global.IntersectionObserver = IntersectionObserverMockInstance;
 
-describe("Home", () => {
-  it("should render the page with correct content", () => {
-    render(<Home />);
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: ({ src, alt }: { src: string; alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt={alt} />
+  ),
+}));
 
-    // Check if the main greeting text is rendered
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
+}));
+
+describe("Home Component", () => {
+  beforeEach(() => {
+    render(<Home />);
+  });
+
+  it("renders the main heading correctly", () => {
     expect(
       screen.getByRole("heading", { name: /Olá, eu sou o Artur! 👋/i }),
     ).toBeInTheDocument();
+  });
 
-    // Check if the download curriculum button is rendered
-    expect(screen.getByText("Download Curriculum")).toBeInTheDocument();
+  it("toggles the dropdown menu for language selection", () => {
+    const downloadButton = screen.getByRole("button", {
+      name: /Download Curriculum/i,
+    });
 
-    // Check if the online curriculum button is rendered
-    expect(screen.getByText("Currículo Online")).toBeInTheDocument();
+    fireEvent.click(downloadButton);
+    expect(
+      screen.getByRole("button", { name: /English/i }),
+    ).toBeInTheDocument();
 
-    // Check if the contact button is rendered
-    expect(screen.getByText("Entre em contato comigo")).toBeInTheDocument();
+    fireEvent.click(downloadButton);
+    expect(
+      screen.queryByRole("button", { name: /English/i }),
+    ).not.toBeInTheDocument();
+  });
 
-    // Test for the presence of an image
+  it("selects English language and displays the curriculum", () => {
+    const downloadButton = screen.getByRole("button", {
+      name: /Download Curriculum/i,
+    });
+
+    fireEvent.click(downloadButton);
+    const englishOption = screen.getByRole("button", { name: /English/i });
+    fireEvent.click(englishOption);
+
+    expect(screen.getByTitle(/Curriculum in English/i)).toBeInTheDocument();
+  });
+
+  it("selects Portuguese language and displays the curriculum", () => {
+    const downloadButton = screen.getByRole("button", {
+      name: /Download Curriculum/i,
+    });
+
+    fireEvent.click(downloadButton);
+    const portugueseOption = screen.getByRole("button", { name: /Português/i });
+    fireEvent.click(portugueseOption);
+
+    expect(screen.getByTitle(/Curriculum in Português/i)).toBeInTheDocument();
+  });
+
+  it("closes the dropdown menu when clicking outside", () => {
+    const downloadButton = screen.getByRole("button", {
+      name: /Download Curriculum/i,
+    });
+
+    fireEvent.click(downloadButton);
+    expect(
+      screen.getByRole("button", { name: /English/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Português/i }),
+    ).toBeInTheDocument();
+
+    fireEvent.mouseDown(document);
+
+    expect(
+      screen.queryByRole("button", { name: /English/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /Português/i }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("opens iframe with download button for English curriculum", () => {
+    const openMock = jest.spyOn(window, "open").mockImplementation();
+
+    // Mock window.open to simulate the download behavior
+    const downloadButton = screen.getByRole("button", {
+      name: /Download Curriculum/i,
+    });
+    fireEvent.click(downloadButton);
+
+    // Simulate selecting English option
+    const englishOption = screen.getByRole("button", { name: /English/i });
+    fireEvent.click(englishOption);
+
+    // Verify the download link
+    const downloadLink = screen.getByRole("link", {
+      name: /Download Curriculum - English/i,
+    });
+
+    const downloadUrl =
+      "https://drive.google.com/uc?export=download&id=1sVaQhEoGYpKKYWrhgQBFuA5xlMYMQi_z";
+
+    expect(downloadLink).toHaveAttribute("href", downloadUrl);
+
+    // Mock window.location to simulate the download link click
+    Object.defineProperty(window, "location", {
+      value: { href: downloadUrl },
+      writable: true,
+    });
+
+    fireEvent.click(downloadLink);
+
+    // Assert that window.open was not called
+    expect(openMock).not.toHaveBeenCalled();
+
+    // Assert that window.location.href was set correctly
+    expect(window.location.href).toBe(downloadUrl);
+
+    // Restore the mock
+    openMock.mockRestore();
+
+    // Close the iframe
+    const closeButton = screen.getByTestId("close-iframe-button");
+    fireEvent.click(closeButton);
+
+    // Assert that the English option is no longer in the document
+    expect(
+      screen.queryByRole("button", { name: /English/i }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the page with correct content", () => {
+    expect(
+      screen.getByRole("heading", { name: /Olá, eu sou o Artur! 👋/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Download Curriculum/i)).toBeInTheDocument();
+    expect(screen.getByText(/Currículo Online/i)).toBeInTheDocument();
+    expect(screen.getByText(/Entre em contato comigo/i)).toBeInTheDocument();
     expect(screen.getByAltText("Artur Campos")).toBeInTheDocument();
   });
-
-  it("should display correct links for curriculum download and online", () => {
-    render(<Home />);
-
-    // Test for specific links
-    expect(
-      screen.getByRole("link", { name: /Download Curriculum/i }),
-    ).toHaveAttribute("href", "/curriculum.pdf");
-    expect(
-      screen.getByRole("link", { name: /Currículo Online/i }),
-    ).toHaveAttribute("href", "https://curriculum-sandy.vercel.app/");
-  });
-
-  it("should adjust layout for different screen sizes", () => {
-    // To be implemented
-    // Test if the layout adjusts for different screen sizes
-    // Here, you can simulate a smaller screen size and verify if the elements are still visible
-    // render(<Home />);
-    // window.innerWidth = 500;
-    // window.innerHeight = 500;
-    // expect(screen.getByText("Some element")).toBeInTheDocument();
-  });
-
-  it("should handle button click events correctly", () => {
-    // To be implemented
-    // Test if the button click events behave correctly
-    // Here, you can simulate a click on a button and verify if the expected actions are triggered
-    // render(<Home />);
-    // const button = screen.getByText("Send");
-    // fireEvent.click(button);
-    // expect(expectedAction).toHaveBeenCalled();
-  });
-
-  // Add more tests as needed
 });

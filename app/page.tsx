@@ -159,7 +159,8 @@ const Home = () => {
                   </div>
                   <button
                     onClick={closeDropdown}
-                    className="absolute right-0 top-0 text-gray-600  focus:outline-none"
+                    className="absolute right-0 top-0 text-gray-600  focus:outline-none "
+                    data-testid="close-iframe-button"
                   >
                     <div className="absolute right-0 top-2 -mt-10 flex font-bold text-gray-600 transition duration-300 ease-in-out">
                       <SlClose className="hover:text-destructive" size={24} />
