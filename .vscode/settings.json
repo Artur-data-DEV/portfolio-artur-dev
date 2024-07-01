@@ -1,5 +1,9 @@
 {
     "cSpell.words": [
         "Artur"
-    ]
+    ],
+    "sonarlint.connectedMode.project": {
+        "connectionId": "artur-data-dev",
+        "projectKey": "Artur-data-DEV_portfolio-artur-dev"
+    }
 }
