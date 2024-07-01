@@ -16,10 +16,8 @@ const config: Config = {
   },
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-  setupFiles: ["jest-date-mock"],
-  globals: {
-    fetch: global.fetch,
-  },
+  setupFiles: ["jest-date-mock", "jest-mock-fetch"],
+  automock: false,
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },

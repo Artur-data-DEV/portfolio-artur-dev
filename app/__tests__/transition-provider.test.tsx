@@ -3,8 +3,8 @@ import TransitionProvider from "@/providers/transition-provider";
 import Loading from "@/app/loading";
 import { usePathname } from "next/navigation";
 import { IntersectionObserverMockInstance } from "../__mocks__/intersectionObserverMock";
-import HireMe from "../_components/animated/hire-me"; // Importe o componente HireMe
 import React from "react";
+import HireMe from "../_components/animated/hire-me"; // Ensure this import is correct
 
 global.IntersectionObserver = IntersectionObserverMockInstance;
 
@@ -12,12 +12,12 @@ jest.mock("next/navigation", () => ({
   usePathname: jest.fn(),
 }));
 
-jest.mock("../../app/loading", () => ({
+jest.mock("../_components/animated/hire-me", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn(() => <div>HireMe Mock</div>),
 }));
 
-jest.mock("../_components/animated/hire-me", () => ({
+jest.mock("../../app/loading", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -31,6 +31,15 @@ jest.mock("../../providers/theme-provider", () => ({
   __esModule: true,
   default: jest.fn(({ children }) => children),
 }));
+
+// Spy on console.error to suppress warning messages
+beforeAll(() => {
+  jest.spyOn(console, "error").mockImplementation(() => {});
+});
+
+afterAll(() => {
+  jest.restoreAllMocks();
+});
 
 describe("TransitionProvider component", () => {
   beforeEach(() => {

@@ -1,38 +1,49 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import AboutPage from "@/app/about/page";
 import { IntersectionObserverMockInstance } from "../__mocks__/intersectionObserverMock";
+import fetchMock from "jest-mock-fetch";
 
+// Definindo o mock global para IntersectionObserver
 global.IntersectionObserver = IntersectionObserverMockInstance;
 
 describe("AboutPage component", () => {
-  const scrollIntoViewMock = jest.fn();
-
-  jest.mock("react", () => ({
-    ...jest.requireActual("react"),
-    useRef: jest.fn(() => ({
-      current: { scrollIntoView: scrollIntoViewMock },
-    })),
-  }));
-
-  it("renders without errors and all important elements are present", () => {
-    render(<AboutPage />);
-    expect(screen.getByText(/biografia/i)).toBeInTheDocument();
-    expect(screen.getByTestId("scroll-to-skills")).toBeInTheDocument();
-    expect(screen.getByTestId("scroll-to-experience")).toBeInTheDocument();
-    // Add more checks for other important elements if necessary
+  // Limpa o mock antes de cada teste
+  afterEach(() => {
+    fetchMock.reset();
   });
 
-  it("scrolls to skills section when scroll icon is clicked", () => {
+  it("renders without errors and all important elements are present", async () => {
     render(<AboutPage />);
-    const skillsSection = screen.getByTestId("skills-section");
+
+    // Verifica se os elementos importantes estão presentes
+    await waitFor(() => {
+      expect(screen.getByText(/biografia/i)).toBeInTheDocument();
+      expect(screen.getByTestId("scroll-to-skills")).toBeInTheDocument();
+      expect(screen.getByTestId("scroll-to-experience")).toBeInTheDocument();
+    });
+  });
+
+  it("scrolls to skills section when scroll icon is clicked", async () => {
+    render(<AboutPage />);
+
+    // Simula o clique no ícone de scroll para habilidades
     fireEvent.click(screen.getByTestId("scroll-to-skills"));
-    expect(skillsSection).toBeVisible();
+
+    // Verifica se a seção de habilidades está visível após o clique
+    await waitFor(() => {
+      expect(screen.getByTestId("skills-section")).toBeVisible();
+    });
   });
 
-  it("scrolls to experience section when scroll icon is clicked", () => {
+  it("scrolls to experience section when scroll icon is clicked", async () => {
     render(<AboutPage />);
-    const experienceSection = screen.getByTestId("experience-section");
+
+    // Simula o clique no ícone de scroll para experiência
     fireEvent.click(screen.getByTestId("scroll-to-experience"));
-    expect(experienceSection).toBeVisible();
+
+    // Verifica se a seção de experiência está visível após o clique
+    await waitFor(() => {
+      expect(screen.getByTestId("experience-section")).toBeVisible();
+    });
   });
 });

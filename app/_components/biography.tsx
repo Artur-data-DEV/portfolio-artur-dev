@@ -15,7 +15,8 @@ const Biography = () => {
       <div className="flex gap-5">
         <Image
           src={"/profile.png"}
-          alt=""
+          alt="profile"
+          fetchPriority="high"
           width={112}
           height={112}
           className="h-28 w-28 rounded-full object-cover"

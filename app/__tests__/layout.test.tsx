@@ -4,6 +4,8 @@ import CustomLayout from "@/app/_components/customLayout";
 import TransitionProvider from "@/providers/transition-provider";
 import ThemeProvider from "@/providers/theme-provider";
 
+console.error = jest.fn();
+
 // Mock para o componente CustomLayout
 jest.mock("../_components/customLayout", () => ({
   __esModule: true,
