@@ -4,15 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "check-types": "tsc --noEmit",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open",
+    "dev": "next dev",
     "lint": "next lint",
     "prepare": "husky",
+    "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "cypress:run": "cypress run",
-    "cypress:open": "cypress open"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@lordicon/react": "^1.6.0",

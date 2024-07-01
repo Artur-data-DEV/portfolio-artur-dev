@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "svgr.d.ts"
-, "cypress/integration/spec.cy.js"  ],
-  "exclude": ["node_modules"]
+  ],
+  "exclude": ["node_modules", "./cypress.config.ts"]
 }
