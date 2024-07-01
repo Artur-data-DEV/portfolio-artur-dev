@@ -52,8 +52,8 @@ const Skills = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        {skills.map((skill, index) => (
-          <SkillIcon key={index} {...skill} />
+        {skills.map((skill) => (
+          <SkillIcon key={skill.id} {...skill} />
         ))}
       </motion.div>
     </div>
@@ -91,147 +91,171 @@ const SkillIcon = ({ icon, text, color, link }: SkillIconsProps) => {
 export default Skills;
 const skills = [
   {
+    id: 1,
     icon: FaHtml5,
     text: "HTML",
-    color: "#E44D26", // Original HTML color
+    color: "#E44D26",
     link: "https://www.w3.org/html/",
   },
   {
+    id: 2,
     icon: FaCss3Alt,
     text: "CSS",
-    color: "#2965F1", // Original CSS color
+    color: "#2965F1",
     link: "https://www.w3.org/Style/CSS/Overview.en.html",
   },
   {
+    id: 3,
     icon: FaJsSquare,
     text: "JavaScript",
-    color: "#F0DB4F", // Original JavaScript color
+    color: "#F0DB4F",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
+    id: 4,
     icon: SiTypescript,
     text: "TypeScript",
-    color: "#007ACC", // Original TypeScript color
+    color: "#007ACC",
     link: "https://www.typescriptlang.org/",
   },
   {
+    id: 5,
     icon: FaReact,
     text: "React",
-    color: "#61DAFB", // Original React color
+    color: "#61DAFB",
     link: "https://reactjs.org/",
   },
   {
+    id: 6,
     icon: RiTailwindCssFill,
     text: "Tailwind CSS",
-    color: "#38B2AC", // Original Tailwind CSS color
+    color: "#38B2AC",
     link: "https://tailwindcss.com/",
   },
   {
+    id: 7,
     icon: SiNodedotjs,
     text: "Node.js",
-    color: "#68A063", // Original Node.js color
+    color: "#68A063",
     link: "https://nodejs.org/",
   },
   {
+    id: 8,
     icon: FaPython,
     text: "Python",
-    color: "#306998", // Original Python color
+    color: "#306998",
     link: "https://www.python.org/",
   },
   {
+    id: 9,
     icon: DiMongodb,
     text: "MongoDB",
-    color: "#47A248", // Original MongoDB color
+    color: "#47A248",
     link: "https://www.mongodb.com/",
   },
   {
+    id: 10,
     icon: DiDocker,
     text: "Docker",
-    color: "#2496ED", // Original Docker color
+    color: "#2496ED",
     link: "https://www.docker.com/",
   },
   {
+    id: 11,
     icon: SiKubernetes,
     text: "Kubernetes",
-    color: "#326CE5", // Original Kubernetes color
+    color: "#326CE5",
     link: "https://kubernetes.io/",
   },
   {
+    id: 12,
     icon: SiPrisma,
     text: "Prisma",
-    color: "#1B222D", // Original Prisma color
+    color: "#1B222D",
     link: "https://www.prisma.io/",
   },
   {
+    id: 13,
     icon: RiNextjsFill,
     text: "Next.js",
-    color: "#000000", // Original Next.js color
+    color: "#000000",
     link: "https://nextjs.org/",
   },
   {
+    id: 14,
     icon: SiNestjs,
     text: "Nest.js",
-    color: "#E0234E", // Original Nest.js color
+    color: "#E0234E",
     link: "https://nestjs.com/",
   },
   {
+    id: 15,
     icon: SiNeovim,
     text: "NeonDB",
-    color: "#57A143", // Original NeonDB color
+    color: "#57A143",
     link: "https://neon.tech",
   },
   {
+    id: 16,
     icon: SiPostgresql,
     text: "PostgreSQL",
-    color: "#336791", // Original PostgreSQL color
+    color: "#336791",
     link: "https://www.postgresql.org/",
   },
   {
+    id: 17,
     icon: FaAws,
     text: "AWS Cloud",
-    color: "#232F3E", // Original AWS Cloud color
+    color: "#232F3E",
     link: "https://aws.amazon.com/",
   },
   {
+    id: 18,
     icon: SiGooglecloud,
     text: "Google Cloud",
-    color: "#4285F4", // Original Google Cloud color
+    color: "#4285F4",
     link: "https://cloud.google.com/",
   },
   {
+    id: 19,
     icon: FaShieldDog,
     text: "Husky",
-    color: "#fc0398", // Original Husky color
+    color: "#fc0398",
     link: "https://www.husky.io/",
   },
   {
+    id: 20,
     icon: FaGitAlt,
     text: "Git",
-    color: "#F05032", // Original Git color
+    color: "#F05032",
     link: "https://git-scm.com/",
   },
   {
+    id: 21,
     icon: SiGithubactions,
     text: "Github CI/CD",
-    color: "#2088FF", // Original GitHub Actions color
+    color: "#2088FF",
     link: "https://github.com/features/actions",
   },
   {
+    id: 22,
     icon: FaLinux,
     text: "Bash Linux",
-    color: "#000000", // Original Bash Linux color
+    color: "#000000",
     link: "https://www.linux.org/",
   },
   {
+    id: 23,
     icon: SiApachekafka,
     text: "Kafka",
-    color: "#f75445", // Original Kafka color
+    color: "#f75445",
     link: "https://kafka.apache.org/",
   },
   {
+    id: 24,
     icon: SiTrello,
     text: "Trello",
-    color: "#0079BF", // Original Trello color
+    color: "#0079BF",
     link: "https://trello.com/",
   },
 ];

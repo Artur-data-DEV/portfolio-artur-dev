@@ -11,7 +11,7 @@ const empresas: string[] = [
 ];
 const divideEmpresas = (empresas: string[]): string[][] => {
   const empresasDivididas: string[][] = [];
-  const empresasOrdenadas = empresas.sort();
+  const empresasOrdenadas = empresas.toSorted((a, b) => a.localeCompare(b));
 
   let i = 0;
   while (i < empresas.length) {
@@ -46,14 +46,14 @@ const Hero = () => {
           empresas de tecnologia como:
         </h2>
         <div className="ml-7 flex gap-5">
-          {empresasDivididas.map((bloco, index) => (
+          {empresasDivididas.map((bloco) => (
             <ul
-              key={index}
+              key={`bloco-${bloco}`}
               className="flex list-disc flex-col text-lg text-gray-300 md:text-2xl"
             >
-              {bloco.map((empresa, idx) => (
+              {bloco.map((empresa) => (
                 <li
-                  key={idx}
+                  key={empresa}
                   className="w-full text-left text-lg font-bold text-gray-300"
                 >
                   {empresa}

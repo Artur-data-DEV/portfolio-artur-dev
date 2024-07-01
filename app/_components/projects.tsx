@@ -27,32 +27,30 @@ const Projects = () => {
     <div className="p-8">
       <h2 className="mb-4 text-2xl font-bold">Projetos</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {projectData &&
-          projectData.map((project) => (
-            <div
-              className="rounded-lg bg-white p-4 shadow-md"
-              key={project.id.toString()}
-            >
-              <div className="mb-2 flex items-center justify-between">
-                {openedProjects.includes(project.id.toString()) ? (
-                  <FaFolderOpen className="text-blue-500" />
-                ) : (
-                  <FaFolderClosed className="text-blue-500" />
-                )}
-                <div className="ml-auto">
-                  <Link href={project.githubUrl}>
-                    <span
-                      onClick={() => handleLinkClick(project.id.toString())}
-                    >
-                      <FaGithub className="text-gray-500 hover:text-gray-700" />
-                    </span>
-                  </Link>
-                </div>
+        {projectData?.map((project) => (
+          <div
+            className="rounded-lg bg-white p-4 shadow-md"
+            key={project.id.toString()}
+          >
+            <div className="mb-2 flex items-center justify-between">
+              {openedProjects.includes(project.id.toString()) ? (
+                <FaFolderOpen className="text-blue-500" />
+              ) : (
+                <FaFolderClosed className="text-blue-500" />
+              )}
+              <div className="ml-auto">
+                <Link
+                  href={project.githubUrl}
+                  onClick={() => handleLinkClick(project.id.toString())}
+                >
+                  <FaGithub className="text-gray-500 hover:text-gray-700" />
+                </Link>
               </div>
-              <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
-              <p className="text-gray-700">{project.description}</p>
             </div>
-          ))}
+            <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
+            <p className="text-gray-700">{project.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

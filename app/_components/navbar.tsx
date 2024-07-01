@@ -114,9 +114,9 @@ const Navbar = () => {
           </div>
           <div className="flex items-center space-x-6 ">
             <div className="flex space-x-3">
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((link) => (
                 <motion.a
-                  key={index}
+                  key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -157,16 +157,12 @@ const Navbar = () => {
               variants={navList}
             >
               <h2 className="self-center text-xl text-primary">Menu</h2>
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <motion.li
-                  key={index}
+                  key={link.title}
                   variants={navItem}
                   className={"w-fit py-2"}
-                  onClick={() =>
-                    setTimeout(() => {
-                      () => setIsOpen(false);
-                    }, 2000)
-                  }
+                  onClick={() => setIsOpen(false)}
                 >
                   <CustomLink
                     key={link.href}

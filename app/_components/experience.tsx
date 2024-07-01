@@ -23,7 +23,7 @@ const Experience = () => {
         {/* MAP EXPERIENCES */}
         {experiences.map((experience, index) => (
           <div
-            key={index}
+            key={experience.id}
             className={`flex h-auto w-full justify-stretch  ${
               index % 2 === 0 ? "flex-row-reverse" : ""
             }`}

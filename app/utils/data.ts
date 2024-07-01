@@ -51,6 +51,7 @@ export const projectData = [
 
 export const experiences = [
   {
+    id: 1,
     title: "Analista de Monitoramento de Dados",
     company: "Global Hitss",
     description:
@@ -65,6 +66,7 @@ export const experiences = [
     },
   },
   {
+    id: 2,
     title: "Analista de Tecnologia II - Desenvolvedor Full Stack",
     company: "Algar Telecom",
     description:
@@ -79,6 +81,7 @@ export const experiences = [
     },
   },
   {
+    id: 3,
     title: "Analista de Segurança da Informação",
     company: "BRB Banco de Brasília (Sede)",
     description:
@@ -93,6 +96,7 @@ export const experiences = [
     },
   },
   {
+    id: 4,
     title: "Desenvolvedor Backend Javascript",
     company: "Cartório Colorado",
     description:
@@ -107,6 +111,7 @@ export const experiences = [
     },
   },
   {
+    id: 5,
     title: "Técnico de Infraestrutura",
     company: "EBSERH",
     description:
@@ -121,6 +126,7 @@ export const experiences = [
     },
   },
   {
+    id: 6,
     title: "Analista de Qualidade Jr (QA)",
     company: "Stefanini Soluções em TI",
     description:
@@ -135,6 +141,7 @@ export const experiences = [
     },
   },
   {
+    id: 7,
     title: "Suporte Técnico de TI",
     company: "UnB - Universidade de Brasília",
     description:
@@ -149,6 +156,7 @@ export const experiences = [
     },
   },
   {
+    id: 8,
     title: "Aprendiz de Compras",
     company: "Hospital Santa Marta",
     description:

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Fullstack from "/public/fullstack.svg";
+import Fullstack from "@/public/fullstack.svg";
 
 const HireMe = () => {
   return (
-    <div className="fixed bottom-4 left-1 flex items-center justify-center overflow-hidden opacity-60 lg:left-0 z-30">
+    <div className="fixed bottom-4 left-1 z-30 flex items-center justify-center overflow-hidden opacity-60 lg:left-0">
       <div className="relative flex h-auto w-36 items-center justify-center hover:text-primary-foreground lg:w-44">
         <Fullstack className="animate-spin-slow fill-slate-600 " />
         <span className="text-primary hover:text-primary-foreground">

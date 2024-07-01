@@ -1,6 +1,7 @@
 "use client";
 import { Player } from "@lordicon/react";
 import { IconData } from "@lordicon/react/dist/interfaces";
+import Link from "next/link";
 import { useRef } from "react";
 
 interface LordiconProps {
@@ -20,20 +21,26 @@ const Lordicon = ({ icon, delay = 0 }: LordiconProps) => {
   };
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <>
       {icon && (
-        <Player
-          icon={icon}
-          ref={playerRef}
-          size={120}
-          renderMode="HARDWARE"
-          onReady={() => playerRef.current?.playFromBeginning()}
-          onComplete={() =>
-            setTimeout(() => playerRef.current?.playFromBeginning(), delay)
-          }
-        />
+        <Link
+          href={""}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Player
+            icon={icon}
+            ref={playerRef}
+            size={120}
+            renderMode="HARDWARE"
+            onReady={() => playerRef.current?.playFromBeginning()}
+            onComplete={() =>
+              setTimeout(() => playerRef.current?.playFromBeginning(), delay)
+            }
+          />
+        </Link>
       )}
-    </div>
+    </>
   );
 };
 

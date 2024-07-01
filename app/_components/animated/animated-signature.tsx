@@ -49,7 +49,7 @@ const Signature = () => {
         >
           {paths.map((path, index) => (
             <motion.path
-              key={index}
+              key={path.id}
               className="autograph__path"
               d={path.getAttribute("d") as string}
               initial="hidden"

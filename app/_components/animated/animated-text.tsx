@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 interface AnimatedTextProps {
   text: string;
@@ -49,7 +50,7 @@ const AnimatedText = ({ text, className }: AnimatedTextProps) => {
         animate="animate"
       >
         {parts.map((part, partIndex) => (
-          <span key={partIndex}>
+          <span key={`part-${partIndex}-${uuidv4()}`}>
             {part.split(" ").map((char, wordIndex) => (
               <motion.span
                 key={char + "-" + wordIndex}
