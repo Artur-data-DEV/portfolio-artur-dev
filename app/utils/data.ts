@@ -62,7 +62,7 @@ export const experiences = [
     image: {
       url: "/global_hitss.png",
       width: 300,
-      heigth: 90,
+      height: 90,
     },
   },
   {
@@ -77,7 +77,7 @@ export const experiences = [
     image: {
       url: "/Algar_Telecom_logo.svg",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -92,7 +92,7 @@ export const experiences = [
     image: {
       url: "/banco-brb-1.svg",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -107,7 +107,7 @@ export const experiences = [
     image: {
       url: "/Logo-Cartorio-Colorado.svg",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -122,7 +122,7 @@ export const experiences = [
     image: {
       url: "/EBSERH.png",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -137,7 +137,7 @@ export const experiences = [
     image: {
       url: "/stefanini.png",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -152,7 +152,7 @@ export const experiences = [
     image: {
       url: "/unb.svg",
       width: 200,
-      heigth: 100,
+      height: 100,
     },
   },
   {
@@ -167,7 +167,7 @@ export const experiences = [
     image: {
       url: "/hsm.png",
       width: 300,
-      heigth: 100,
+      height: 100,
     },
   },
 ];

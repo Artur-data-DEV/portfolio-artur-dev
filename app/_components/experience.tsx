@@ -39,13 +39,7 @@ const Experience = () => {
         {experiences.map((experience, index) => (
           <ExperienceItem
             key={experience.id}
-            experience={{
-              ...experience,
-              image: {
-                ...experience.image,
-                height: experience.image.heigth,
-              },
-            }}
+            experience={experience}
             reverse={index % 2 === 0}
           />
         ))}
@@ -56,7 +50,7 @@ const Experience = () => {
 
 const ExperienceItem = ({ experience, reverse }: ExperienceItem) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref);
 
   return (
     <motion.div
