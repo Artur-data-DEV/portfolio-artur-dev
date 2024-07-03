@@ -71,8 +71,8 @@ const Home = () => {
       </AnimatedMotionComponent>
       <div className="flex w-full flex-col items-center lg:ml-4 lg:w-1/2 lg:items-start">
         <AnimatedText
-          text="Olá, eu sou o Artur! 👋|br|Transformando ideias em realidade com código e design"
-          className="text-left text-xl text-primary sm:text-2xl lg:text-3xl xl:text-5xl"
+          text="Olá, eu sou o Artur! 👋|br|Transformando ideias em realidade com código e design 👨‍💻"
+          className="text-2xl text-primary sm:text-2xl lg:text-3xl xl:text-5xl"
         />
         <AnimatedMotionComponent
           transition={{ duration: 1 }}

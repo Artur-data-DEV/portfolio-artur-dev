@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { v4 as uuidv4 } from "uuid";
+import GraphemeSplitter from "grapheme-splitter";
 
 interface AnimatedTextProps {
   text: string;
@@ -14,13 +14,13 @@ const quote = {
   animate: {
     opacity: 1,
     transition: {
-      delay: 0.5,
+      delay: 0.3,
       staggerChildren: 0.08,
     },
   },
 };
 
-const singleWord = {
+const singleChar = {
   initial: {
     opacity: 0,
     y: 50,
@@ -29,12 +29,14 @@ const singleWord = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 0.5,
+      ease: "easeInOut",
     },
   },
 };
 
 const AnimatedText = ({ text, className }: AnimatedTextProps) => {
+  const splitter = new GraphemeSplitter();
   const parts = text.split("|br|");
 
   return (
@@ -44,20 +46,20 @@ const AnimatedText = ({ text, className }: AnimatedTextProps) => {
       }
     >
       <motion.h1
-        className={`inline-block w-full text-8xl font-bold capitalize text-current ${className} duration-300 ease-in-out`}
+        className={`inline-block w-full text-left font-bold text-current ${className} duration-300 ease-in-out`}
         variants={quote}
         initial="initial"
         animate="animate"
       >
         {parts.map((part, partIndex) => (
-          <span key={`part-${partIndex}-${uuidv4()}`}>
-            {part.split(" ").map((char, wordIndex) => (
+          <span key={`part-${partIndex}`}>
+            {splitter.splitGraphemes(part).map((char, charIndex) => (
               <motion.span
-                key={char + "-" + wordIndex}
+                key={char + "-" + charIndex}
                 className={"inline-block"}
-                variants={singleWord}
+                variants={singleChar}
               >
-                {char}&nbsp;
+                {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
             {partIndex < parts.length - 1 && <br />}
