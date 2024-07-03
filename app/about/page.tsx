@@ -42,7 +42,7 @@ const AboutPage = () => {
       className="h-screen w-screen"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
     >
       <div
         className="flex h-full overflow-x-hidden overflow-y-scroll lg:flex"
