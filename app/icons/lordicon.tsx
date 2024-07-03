@@ -2,7 +2,7 @@
 import { Player } from "@lordicon/react";
 import { IconData } from "@lordicon/react/dist/interfaces";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface LordiconProps {
   icon: IconData;
@@ -19,6 +19,11 @@ const Lordicon = ({ icon, delay = 0 }: LordiconProps) => {
   const handleMouseLeave = () => {
     playerRef.current?.playFromBeginning();
   };
+  useEffect(() => {
+    if (playerRef.current) {
+      playerRef.current.playFromBeginning();
+    }
+  }, [playerRef]);
 
   return (
     <>
