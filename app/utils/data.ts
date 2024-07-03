@@ -165,7 +165,7 @@ export const experiences = [
     endDate: "Agosto de 2018",
     location: "Taguatinga Sul, Brasília - DF",
     image: {
-      url: "/hsm.png",
+      url: "/HSM.png",
       width: 300,
       height: 100,
     },
