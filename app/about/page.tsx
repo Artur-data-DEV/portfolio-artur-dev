@@ -42,7 +42,7 @@ const AboutPage = () => {
       className="h-screen w-screen"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
     >
       <div
         className="flex h-full overflow-x-hidden overflow-y-scroll lg:flex"
@@ -94,15 +94,11 @@ const AboutPage = () => {
             >
               SKILLS
             </motion.h1>
-            <motion.div
-              initial={{ x: "-300px" }}
-              animate={isSkillRefInView ? { x: 0 } : {}}
-              className="flex flex-wrap gap-4"
-            >
+            <div className="flex flex-wrap gap-4">
               <Skills />
-            </motion.div>
+            </div>
             <motion.svg
-              initial={{ opacity: 0.2, y: 0 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: "10px" }}
               transition={{
                 repeat: Infinity,

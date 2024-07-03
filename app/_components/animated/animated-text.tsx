@@ -52,7 +52,7 @@ const AnimatedText = ({ text, className }: AnimatedTextProps) => {
         animate="animate"
       >
         {parts.map((part, partIndex) => (
-          <span key={`part-${partIndex}`}>
+          <span key={"part" + partIndex}>
             {splitter.splitGraphemes(part).map((char, charIndex) => (
               <motion.span
                 key={char + "-" + charIndex}

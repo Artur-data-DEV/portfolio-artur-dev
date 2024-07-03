@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { IconType } from "react-icons";
 import {
   FaHtml5,
@@ -35,60 +35,96 @@ interface SkillIconsProps {
   text: string;
   color: string;
   link: string;
+  delay: number;
 }
 
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
-    <div className={`px-4 py-2 ${isVisible ? "animate-fade-in" : ""}`}>
+    <div className="px-4 py-2">
       <motion.div
         className="grid grid-cols-3 gap-4 lg:grid-cols-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        initial="hidden"
+        animate="visible"
       >
-        {skills.map((skill) => (
-          <SkillIcon key={skill.id} {...skill} />
+        {skills.map((skill, index) => (
+          <SkillIcon key={skill.id} {...skill} delay={index * 0.2} />
         ))}
       </motion.div>
     </div>
   );
 };
 
-const SkillIcon = ({ icon, text, color, link }: SkillIconsProps) => {
-  // Determine background pattern or element based on the skill
+const SkillIcon = ({ icon, text, color, link, delay }: SkillIconsProps) => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 1,
+          bounce: 0.3,
+          delay: delay,
+        },
+      });
+    } else {
+      controls.start({
+        y: 20,
+        opacity: 0,
+      });
+    }
+  }, [controls, isInView, delay]);
 
   return (
-    <Link
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex flex-col items-center justify-center rounded-3xl bg-card p-4 shadow-md transition duration-300`}
+    <motion.div
+      ref={ref}
+      className="flex flex-col items-center justify-center rounded-3xl bg-card p-4 shadow-md"
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.1 }}
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={controls}
+      variants={{
+        hidden: {
+          opacity: 0,
+          y: 20,
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: "spring",
+            duration: 1,
+            bounce: 0.3,
+            delay: delay,
+          },
+        },
+      }}
     >
-      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+      <Link href={link} target="_blank" rel="noopener noreferrer">
         {icon({
           size: 64,
           color: color,
         })}
-      </motion.div>
+      </Link>
       <motion.p
-        className={` text-center text-base font-semibold text-muted-foreground  `}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        className="text-center text-base font-semibold text-muted-foreground"
         transition={{ delay: 0.3 }}
       >
         {text}
       </motion.p>
-    </Link>
+    </motion.div>
   );
 };
 
 export default Skills;
+
 const skills = [
   {
     id: 1,
