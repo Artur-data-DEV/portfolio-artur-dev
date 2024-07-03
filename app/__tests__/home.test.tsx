@@ -40,7 +40,9 @@ describe("Home Component", () => {
 
   it("renders the main heading correctly", () => {
     expect(
-      screen.getByRole("heading", { name: /Olá, eu sou o Artur! 👋/i }),
+      screen.getByRole("heading", {
+        name: /O l á , e u s o u o A r t u r ! 👋 T r a n s f o r m a n d o i d e i a s e m r e a l i d a d e c o m c ó d i g o e d e s i g n 👨‍💻/i,
+      }),
     ).toBeInTheDocument();
   });
 
@@ -158,9 +160,6 @@ describe("Home Component", () => {
   });
 
   it("renders the page with correct content", () => {
-    expect(
-      screen.getByRole("heading", { name: /Olá, eu sou o Artur! 👋/i }),
-    ).toBeInTheDocument();
     expect(screen.getByText(/Download Curriculum/i)).toBeInTheDocument();
     expect(screen.getByText(/Currículo Online/i)).toBeInTheDocument();
     expect(screen.getByText(/Entre em contato comigo/i)).toBeInTheDocument();
