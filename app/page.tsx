@@ -32,7 +32,6 @@ const Home = () => {
   };
 
   const windowSize = useWindowSize();
-  const isMobileScreen = windowSize?.width ? windowSize.width <= 768 : false;
   const isExtraLargeScreen = windowSize?.width
     ? windowSize.width > 1024
     : false;
@@ -57,7 +56,7 @@ const Home = () => {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-primary-foreground px-4 text-current sm:max-w-[1000px] sm:px-8 lg:max-w-[1200px] lg:flex-row xl:max-w-[1500px] 2xl:max-w-[2000px]">
       <AnimatedMotionComponent
-        className={isMobileScreen ? "h-1/2 w-1/2" : "h-auto w-[40vw] lg:mr-4"}
+        className={"h-full w-[40vw] sm:h-auto lg:mr-4 lg:w-1/3"}
         tag="div"
       >
         <Image
@@ -69,7 +68,7 @@ const Home = () => {
           sizes="100vw"
         />
       </AnimatedMotionComponent>
-      <div className="flex w-full flex-col items-center lg:ml-4 lg:w-1/2 lg:items-start">
+      <div className="flex w-full flex-col items-center lg:ml-4 lg:w-2/3 lg:items-start">
         <AnimatedText
           text="Olá, eu sou o Artur! 👋|br|Transformando ideias em realidade com código e design 👨‍💻"
           className="text-2xl text-primary sm:text-2xl lg:text-3xl xl:text-5xl"

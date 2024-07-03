@@ -40,8 +40,8 @@ const AboutPage = () => {
   return (
     <motion.div
       className="h-screen w-screen"
-      initial={{ x: "-200vh" }}
-      animate={{ x: "0%" }}
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
       transition={{ duration: 0.5 }}
     >
       <div
