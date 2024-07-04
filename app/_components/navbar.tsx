@@ -79,7 +79,6 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", title: "Home" },
     { href: "/about", title: "Sobre" },
-    { href: "/skills", title: "Skills" },
     { href: "/projects", title: "Projetos" },
     { href: "/contact", title: "Contato" },
   ];

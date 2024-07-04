@@ -257,7 +257,7 @@ const skills = [
     icon: FaShieldDog,
     text: "Husky",
     color: "#fc0398",
-    link: "https://www.husky.io/",
+    link: "https://typicode.github.io/husky/",
   },
   {
     id: 20,

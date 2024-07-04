@@ -55,7 +55,7 @@ export const experiences = [
     title: "Analista de Monitoramento de Dados",
     company: "Global Hitss",
     description:
-      "Manter a qualidade dos dados, monitorar sistemas de relatórios, fornecer feedback contínuo e suporte para mudanças contínuas com ferramenta de infra Grafana/Prometheus. Melhorias na qualidade dos dados com equipes e clientes, participando de sessões de planejamento e revisão para limpeza e análise de dados. Experiente na manutenção de módulos de treinamento de usuários finais, apoiando sessões mensais de treinamento em SQL avançado e modelo de dados do sistema, e monitorar aplicativos upstream em busca de alterações nas tabelas para garantir a integridade dos dados.",
+      "Monitoramento da qualidade dos dados, gerenciando logs, fornecendo feedback e suporte para mudanças contínuas com ferramenta de infra Grafana/Prometheus. Melhorias na qualidade dos dados com equipes e clientes, participando de sessões de planejamento e revisão para limpeza e análise de dados. Experiência na manutenção de módulos de treinamento de usuários finais, apoiando sessões mensais de treinamento em SQL avançado e modelo de dados do sistema. Auxiliando na monitoração de aplicativos upstream em busca de alterações nas tabelas para garantir a integridade dos dados.",
     startDate: "Junho de 2024",
     endDate: "Presente",
     location: "Asa Norte, Brasília - DF",
@@ -70,7 +70,7 @@ export const experiences = [
     title: "Analista de Tecnologia II - Desenvolvedor Full Stack",
     company: "Algar Telecom",
     description:
-      "Especialista em Desenvolvimento Frontend especializado em Gatsby e React, com ampla experiência em metodologias ágeis. Envolvido na reformulação de diversas páginas do site da Algar Telecom, com foco em melhorar a experiência do usuário e otimizar o desempenho durante a colaboração remota e sprints de projetos. Envolvido em reuniões com as partes interessadas, iterações de design, testes de usuários e planos de melhoria de produtos para garantir que os projetos finais atendam ao cliente. Desenvolvi e implantei vários aplicativos web full-stack usando tecnologias como JavaScript, React, Node.js e Amazon Web Services, aumentando a eficiência do sistema em 25%.",
+      "Especialista em Desenvolvimento Frontend especializado em Gatsby e React, com ampla experiência em metodologias ágeis. Envolvido na reformulação de diversas páginas do site da Algar Telecom, com foco em melhorar a experiência do usuário e otimizar o desempenho durante a colaboração remota e sprints de projetos. Envolvido em reuniões com as partes interessadas, iterações de design, testes de usuários e planos de melhoria de produtos para garantir que os projetos finais atendam ao cliente. Desenvolvi e implantei vários aplicativos web full-stack usando tecnologias como JavaScript, React, Node.js e Amazon Web Services, aumentando a eficiência e usabilidade do sistema.",
     startDate: "Junho de 2022",
     endDate: "Abril de 2023",
     location: "Uberlândia, Minas Gerais - MG (Remote)",
@@ -100,7 +100,7 @@ export const experiences = [
     title: "Desenvolvedor Backend Javascript",
     company: "Cartório Colorado",
     description:
-      "Atuar no desenvolvimento de aplicações cartoriais utilizando StackRocket, NodeJS, testes baseados em modelos com Jest, máquinas de estado com XState, JavaScript + GitHub, microsserviços com Docker + Kubernetes e GKE. Utilização do Google Cloud como infraestrutura e trabalho no desenvolvimento de aplicações backend com NodeJS. Execute testes baseados em modelo com Jest, máquinas de estado com XState, DevOps com Kubernetes e CI/CD com GitHub Actions. Desenvolvi e implantei APIs RESTful escaláveis usando Node.js, Express e MongoDB, resultando em uma melhoria de 30% nas velocidades de recuperação de dados e suportando mais de 50.000 usuários ativos mensalmente.",
+      "Desenvolvimento de aplicações cartoriais utilizando StackRocket, NodeJS, testes baseados em modelos com Jest, máquinas de estado com XState, JavaScript + GitHub, microsserviços com Docker + Kubernetes e GKE. Utilização do Google Cloud como infraestrutura e trabalho no desenvolvimento de aplicações backend com NodeJS. Execute testes baseados em modelo com Jest, máquinas de estado com XState, DevOps com Kubernetes e CI/CD com GitHub Actions. Desenvolvi e implantei APIs RESTful escaláveis usando Node.js, Express e MongoDB, resultando em uma melhoria de 30% nas velocidades de recuperação de dados e suportando mais de 50.000 usuários ativos mensalmente.",
     startDate: "Outubro de 2021",
     endDate: "Março de 2022",
     location: "Sobradinho, Brasília - DF",
@@ -145,7 +145,7 @@ export const experiences = [
     title: "Suporte Técnico de TI",
     company: "UnB - Universidade de Brasília",
     description:
-      "Atuação em suporte técnico, suporte ao usuário, configuração de redes de computadores, manutenção de hardware, manutenção de laboratório de informática, manutenção de estrutura de cabeamento, Cloud Computing e demais serviços de TI em geral.",
+      "Estágio em suporte técnico, suporte ao usuário, configuração de redes de computadores, manutenção de hardware, manutenção de laboratório de informática, manutenção de estrutura de cabeamento, Cloud Computing e demais serviços de TI em geral.",
     startDate: "Agosto de 2018",
     endDate: "Julho de 2019",
     location: "Ceilândia, Brasília - DF",
