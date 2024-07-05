@@ -127,7 +127,7 @@ const AboutPage = () => {
               />
             </motion.svg>
           </div>
-          <div ref={experienceRef} data-testid="experience-section">
+          <div ref={experienceRef} data-testid="experience-section" id="experience">
             <motion.div
               id={"experience-container"}
               initial={{ x: "-300px" }}
