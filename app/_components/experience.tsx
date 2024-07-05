@@ -23,7 +23,7 @@ interface ExperienceItem {
 
 const Experience = () => {
   return (
-    <div className="flex w-full flex-col justify-center">
+    <div className="flex w-full flex-col justify-center" id="experience-div">
       {/* EXPERIENCE TITLE */}
       <motion.h1
         initial={{ x: "-300px" }}
