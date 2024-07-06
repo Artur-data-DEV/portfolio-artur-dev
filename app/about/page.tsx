@@ -2,9 +2,9 @@
 import { motion, useInView, useScroll } from "framer-motion";
 import { MutableRefObject, useRef } from "react";
 import Brain from "@/app/_components/animated/animated-brain";
-import Experience from "../_components/experience";
+import Experience from "@/app/_components/experience";
 import Skills from "@/app/_components/skills";
-import Biography from "../_components/biography";
+import Biography from "@/app/_components/biography";
 
 const AboutPage = () => {
   const containerRef: MutableRefObject<HTMLDivElement | null> =

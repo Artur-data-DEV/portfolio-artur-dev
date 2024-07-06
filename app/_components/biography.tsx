@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Signature from "@/app/_components/animated/animated-signature";
-import fork from "@/app/icons/fork.json";
-import puzzle from "@/app/icons/puzzle.json";
-import restApi from "@/app/icons/rest-api.json";
-import cmd from "@/app/icons/cmd.json";
-import webConference from "@/app/icons/web-conference.json";
-import itdev from "@/app/icons/itdev.json";
+import fork from "@/app/_lordicons/fork.json";
+import puzzle from "@/app/_lordicons/puzzle.json";
+import restApi from "@/app/_lordicons/rest-api.json";
+import cmd from "@/app/_lordicons/cmd.json";
+import webConference from "@/app/_lordicons/web-conference.json";
+import itdev from "@/app/_lordicons/itdev.json";
 import BiographyItem from "@/app/_components/biographyItem";
-import { calcularIdade } from "../utils/functions/calcularIdade";
+import { calcularIdade } from "@/app/_utils/functions/calcularIdade";
 
 const Biography = () => {
   return (

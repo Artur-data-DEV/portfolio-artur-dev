@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import AnimatedText from "./_components/animated/animated-text";
 import Link from "next/link";
-import { Button } from "./_components/ui/button";
+import AnimatedText from "@/app/_components/animated/animated-text";
+import AnimatedMotionComponent from "@/app/_components/animated/animated-tag";
+import { Button } from "@/app/_components/ui/button";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Programmer from "../public/programmer.png";
-import AnimatedMotionComponent from "./_components/animated/animated-tag";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useEffect, useRef, useState } from "react";
 import { SlClose } from "react-icons/sl";
@@ -208,7 +207,7 @@ const Home = () => {
           className={"absolute bottom-0 right-0 h-1/4 w-1/4 rounded-full"}
         >
           <Image
-            src={Programmer}
+            src={"programmer.png"}
             alt="developer"
             className="h-auto w-full rounded-full"
             width={0}

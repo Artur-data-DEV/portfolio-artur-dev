@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { projectData } from "../utils/data";
+import { projects } from "@/app/_utils/data";
 import { FaFolderClosed, FaFolderOpen, FaGithub } from "react-icons/fa6";
 
 const Projects = () => {
@@ -27,7 +27,7 @@ const Projects = () => {
     <div className="p-8">
       <h2 className="mb-4 text-2xl font-bold">Projetos</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {projectData?.map((project) => (
+        {projects?.map((project: any) => (
           <div
             className="rounded-lg bg-white p-4 shadow-md"
             key={project.id.toString()}

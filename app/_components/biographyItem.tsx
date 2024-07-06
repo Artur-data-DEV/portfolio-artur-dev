@@ -14,9 +14,12 @@ type BiographyItemProps = {
   reverse?: boolean;
 };
 
-const DynamicLordicon = dynamic<IconProps>(() => import("../icons/lordicon"), {
-  ssr: false,
-});
+const DynamicLordicon = dynamic<IconProps>(
+  () => import("../_lordicons/lordicon"),
+  {
+    ssr: false,
+  },
+);
 
 const BiographyItem: React.FC<BiographyItemProps> = ({
   icon,

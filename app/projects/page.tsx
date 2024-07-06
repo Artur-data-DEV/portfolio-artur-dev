@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { FaFolderClosed, FaFolderOpen, FaGithub } from "react-icons/fa6";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import LoadingVortex from "../_components/animated/animated-loading"; // Adjust the path accordingly
+import LoadingVortex from "@/app/_components/animated/animated-loading"; // Adjust the path accordingly
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectsPage = () => {
@@ -22,7 +22,6 @@ const ProjectsPage = () => {
   >([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // const router = useRouter();
   const searchParams = useSearchParams();
   useEffect(() => {
     console.log(projects.map((project) => project.homepage));

@@ -1,5 +1,5 @@
-import Footer from "./footer";
-import Navbar from "./navbar";
+import Footer from "@/app/_components/footer";
+import Navbar from "@/app/_components/navbar";
 
 const CustomLayout = ({
   children,

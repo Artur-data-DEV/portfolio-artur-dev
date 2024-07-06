@@ -1,10 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
 import ThemeProvider from "@/providers/theme-provider";
-import CustomLayout from "./_components/customLayout";
+import CustomLayout from "@/app/_components/customLayout";
 import TransitionProvider from "@/providers/transition-provider";
-import Head from "next/head";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,13 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning className="overflow-x-hidden ">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
       <body className={`${montserrat.variable} font-sans`}>
         <ThemeProvider
           attribute="class"

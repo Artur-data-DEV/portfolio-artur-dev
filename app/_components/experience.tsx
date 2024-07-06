@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
-import { experiences } from "../utils/data";
-import Image from "next/image";
+import { experiences } from "@/app/_utils/data";
 import { useRef } from "react";
+import Image from "next/image";
 
 interface ExperienceItem {
   reverse: boolean;
