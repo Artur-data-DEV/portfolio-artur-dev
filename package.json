@@ -42,7 +42,7 @@
     "react-loader-spinner": "^6.1.6",
     "sharp": "^0.33.4",
     "snyk": "^1.1291.1",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^10.0.0"
   },
